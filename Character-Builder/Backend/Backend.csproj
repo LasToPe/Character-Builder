@@ -4,4 +4,9 @@
     <TargetFramework>netcoreapp2.0</TargetFramework>
   </PropertyGroup>
 
+  <ItemGroup>
+    <Folder Include="Amor\" />
+    <Folder Include="Weapons\" />
+  </ItemGroup>
+
 </Project>
