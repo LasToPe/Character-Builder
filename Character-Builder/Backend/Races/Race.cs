@@ -2,9 +2,9 @@
 using System.Collections.Generic;
 using System.Text;
 
-namespace Backend.Race
+namespace Backend.Races
 {
-    class Race_v2
+    public class Race
     {
         public int Strength_Bonus { get; set; }
         public int Dexterity_Bonus { get; set; }
@@ -21,6 +21,6 @@ namespace Backend.Race
 
         public List<string> Langauges { get; set; }
 
-        //public List<Racial_Trait> Racial_Traits { get; set; } //Racial traits not ready
+        public List<Racial_Traits.Racial_Trait> Racial_Traits { get; set; } //Racial traits not ready
     }
 }

@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using System.Text;
 
-namespace Backend.Class
+namespace Backend.Classes
 {
     public abstract class Class
     {

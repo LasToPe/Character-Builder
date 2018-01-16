@@ -1,12 +1,13 @@
-﻿using System;
+﻿using Backend.Races.Racial_Traits;
+using System;
 using System.Collections.Generic;
 using System.Text;
 
-namespace Backend.Race
+namespace Backend.Races
 {
-    class Human_v2 : Race_v2
+    class Half_elf : Race
     {
-        public Human_v2(string bonus)
+        public Half_elf(string bonus)
         {
             switch (bonus)
             {
@@ -34,11 +35,19 @@ namespace Backend.Race
 
             Size = Size.Medium();
 
-            Type = "Humanoid (human)";
+            Type = "Humanoid (human, elf)";
 
             Base_Speed = 30;
 
             Langauges.Add("Common");
+            Langauges.Add("Elven");
+
+            Racial_Traits.Add(new Half_elf_Racial_Trait().Elven_Immunities());
+            Racial_Traits.Add(new Half_elf_Racial_Trait().Adaptability());
+            Racial_Traits.Add(new Half_elf_Racial_Trait().Keen_Senses());
+            Racial_Traits.Add(new Half_elf_Racial_Trait().Low_Light_Vision());
+            Racial_Traits.Add(new Half_elf_Racial_Trait().Elf_Blood());
+            Racial_Traits.Add(new Half_elf_Racial_Trait().Multitalented());
         }
     }
 }

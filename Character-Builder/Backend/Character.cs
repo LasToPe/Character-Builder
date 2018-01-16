@@ -1,5 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
+using Backend.Races;
+using Backend.Classes;
 
 namespace Backend
 {
@@ -39,8 +41,8 @@ namespace Backend
         public int Temporary_Wisdom_Modifier { get => (Temporary_Wisdom_Score - 10) / 2; }
         public int Temporary_Charisma_Modifier { get => (Temporary_Charisma_Score - 10) / 2; }
 
-        public Race.Race Race { get; set; }
-        public Class.Class Favored_Class { get; set; }
+        public Race Race { get; set; }
+        public Class Favored_Class { get; set; }
 
         public int Hit_Points { get; set; } //set needs change to accomodate automatic calculation
         
