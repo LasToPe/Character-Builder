@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using Backend.Races;
 using Backend.Classes;
+using Backend.Skills;
 
 namespace Backend
 {
@@ -25,7 +26,7 @@ namespace Backend
         public int Wisdom_Modifier { get => (Wisdom_Score - 10) / 2; }
         public int Charisma_Modifier { get => (Charisma_Score - 10) / 2; }
 
-        //Temporary Ability Scores
+        /*//Temporary Ability Scores
         public int Temporary_Strength_Score { get; set; }
         public int Temporary_Dexterity_Score { get; set; }
         public int Temporary_Constitution_Score { get; set; }
@@ -39,7 +40,7 @@ namespace Backend
         public int Temporary_Constitution_Modifier { get => (Temporary_Constitution_Score - 10) / 2; }
         public int Temporary_Intelligence_Modifier { get => (Temporary_Intelligence_Score - 10) / 2; }
         public int Temporary_Wisdom_Modifier { get => (Temporary_Wisdom_Score - 10) / 2; }
-        public int Temporary_Charisma_Modifier { get => (Temporary_Charisma_Score - 10) / 2; }
+        public int Temporary_Charisma_Modifier { get => (Temporary_Charisma_Score - 10) / 2; }*/
 
         public Race Race { get; set; }
         public Class Favored_Class { get; set; }
@@ -64,7 +65,8 @@ namespace Backend
         public int CMD { get; set; }
 
         //Skills
-        //public Skills Skills { get; set; } //Not ready yet
+        public List<Skill> Skills { get; set; } //Not ready yet
+        public List<Skill> Class_Skills { get; set; } //Not ready yet / Needs change to loop that sets class skills
 
         //Feats
         //public Feats Feats { get; set; } //Not ready yet
