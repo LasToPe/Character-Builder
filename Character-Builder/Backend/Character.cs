@@ -23,7 +23,7 @@ namespace Backend
             Armor_Class = 10;
             Touch_AC = 10;
             FlatFooted_AC = 10;
-            Skills_List = new Setup_Skills().SetUp(this);
+            Skills_List = new Skill().SetUp(this);
         }
 
         public string Name { get; set; }
