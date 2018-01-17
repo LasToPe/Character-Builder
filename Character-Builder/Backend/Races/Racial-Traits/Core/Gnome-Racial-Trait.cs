@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using System.Text;
 
-namespace Backend.Races.Racial_Traits
+namespace Backend.Races.Racial_Traits.Core
 {
     class Gnome_Racial_Trait : Racial_Trait
     {

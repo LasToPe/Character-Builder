@@ -8,6 +8,24 @@ namespace Backend
 {
     public class Character
     {
+        public Character()
+        {
+            Strength_Score = 10;
+            Dexterity_Score = 10;
+            Constitution_Score = 10;
+            Intelligence_Score = 10;
+            Wisdom_Score = 10;
+            Charisma_Score = 10;
+            Race = new Core_Races().Human("Strength");
+            //Favored_Class = favored_Class;
+            Hit_Points = 0;
+            Initiative = 0;
+            Armor_Class = 10;
+            Touch_AC = 10;
+            FlatFooted_AC = 10;
+            Skills_List = new Setup_Skills().SetUp(this);
+        }
+
         public string Name { get; set; }
 
         //Ability Scores
@@ -19,12 +37,12 @@ namespace Backend
         public int Charisma_Score { get; set; }
 
         //Ability Modifiers
-        public int Strength_Modifier { get => (Strength_Score - 10) / 2; }
-        public int Dexterity_Modifier { get => (Dexterity_Score - 10) / 2; }
-        public int Constitution_Modifier { get => (Constitution_Score - 10) / 2; }
-        public int Intelligence_Modifier { get => (Intelligence_Score - 10) / 2; }
-        public int Wisdom_Modifier { get => (Wisdom_Score - 10) / 2; }
-        public int Charisma_Modifier { get => (Charisma_Score - 10) / 2; }
+        public int Strength_Modifier => (Strength_Score - 10) / 2;
+        public int Dexterity_Modifier => (Dexterity_Score - 10) / 2;
+        public int Constitution_Modifier => (Constitution_Score - 10) / 2;
+        public int Intelligence_Modifier => (Intelligence_Score - 10) / 2;
+        public int Wisdom_Modifier => (Wisdom_Score - 10) / 2;
+        public int Charisma_Modifier => (Charisma_Score - 10) / 2;
 
         /*//Temporary Ability Scores
         public int Temporary_Strength_Score { get; set; }
@@ -62,10 +80,10 @@ namespace Backend
         //Base Attack Bonus and Combat Maneuver Bonuses
         public int BAB { get; set; }
         public int CMB { get; set; }
-        public int CMD { get; set; }
+        public int CMD => 10 + BAB + Strength_Modifier + Dexterity_Modifier + Race.Size.CMD_Mod;
 
         //Skills
-        public List<Skill> Skills { get; set; } //Not ready yet
+        public List<Skill> Skills_List { get; set; } //Not ready yet
         public List<Skill> Class_Skills { get; set; } //Not ready yet / Needs change to loop that sets class skills
 
         //Feats

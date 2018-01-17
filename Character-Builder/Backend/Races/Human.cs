@@ -7,7 +7,7 @@ namespace Backend.Races
 {
     class Human : Race
     {
-        public Human(string bonus)
+        public Human(string bonus) : base()
         {
             switch (bonus)
             {
