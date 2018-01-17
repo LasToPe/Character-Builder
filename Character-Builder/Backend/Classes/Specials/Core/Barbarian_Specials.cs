@@ -2,9 +2,9 @@
 using System.Collections.Generic;
 using System.Text;
 
-namespace Backend.Classes
+namespace Backend.Classes.Specials.Core
 {
-    public class Class
+    class Barbarian_Specials
     {
     }
 }
