@@ -1,7 +1,9 @@
 ﻿using System;
 using System.Collections.Generic;
 using Backend.Races;
+using Backend.Races.Core;
 using Backend.Classes;
+using Backend.Classes.Core;
 using Backend.Skills;
 
 namespace Backend
@@ -16,8 +18,8 @@ namespace Backend
             Intelligence_Score = 10;
             Wisdom_Score = 10;
             Charisma_Score = 10;
-            Race = new Core_Races().Human("Strength");
-            //Favored_Class = favored_Class;
+            Race = new Human("Strength");
+            Favored_Class = new Barbarian();
             Hit_Points = 0;
             Initiative = 0;
             Armor_Class = 10;

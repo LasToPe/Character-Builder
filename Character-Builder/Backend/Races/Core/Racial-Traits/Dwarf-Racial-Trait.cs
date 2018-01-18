@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using System.Text;
 
-namespace Backend.Races.Racial_Traits.Core
+namespace Backend.Races.Core.Racial_Traits
 {
     public class Dwarf_Racial_Trait : Racial_Trait
     {

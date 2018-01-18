@@ -2,9 +2,9 @@
 using System.Collections.Generic;
 using System.Text;
 
-namespace Backend.Classes.Specials
+namespace Backend.Classes
 {
-    class Special
+    public class Special
     {
     }
 }

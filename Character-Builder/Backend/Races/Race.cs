@@ -21,6 +21,6 @@ namespace Backend.Races
 
         public List<string> Langauges { get; set; }
 
-        public List<Racial_Traits.Racial_Trait> Racial_Traits { get; set; } //Racial traits not ready
+        public List<Racial_Trait> Racial_Traits { get; set; }
     }
 }

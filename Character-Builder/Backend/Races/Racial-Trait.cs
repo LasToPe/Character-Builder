@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using System.Text;
 
-namespace Backend.Races.Racial_Traits
+namespace Backend.Races
 {
     public class Racial_Trait
     {
