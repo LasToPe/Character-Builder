@@ -2,9 +2,9 @@
 using System.Collections.Generic;
 using System.Text;
 
-namespace Backend.Classes
+namespace Backend.Classes.Core.Class_Features
 {
-    public class Special
+    class Bard_Class_Features
     {
     }
 }
