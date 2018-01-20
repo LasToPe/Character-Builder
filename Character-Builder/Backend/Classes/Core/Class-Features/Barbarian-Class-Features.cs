@@ -492,6 +492,76 @@ namespace Backend.Classes.Core.Class_Features
             return this;
         }
 
-        //next Eater of Magic
+        public Rage_Power Eater_of_Magic(Barbarian barbarian)
+        {
+            Name = "Eater of Magic";
+            Prerequisites.Add(barbarian.Level >= 10);
+            Prerequisites.Add(barbarian.Rage_Powers.Contains()); //superstition
+            Benefit = "Take a second saving throw and gain temporary hit points";
+            return this;
+        }
+
+        public Rage_Power Lesser_Elemental_Rage(Barbarian barbarian)
+        {
+            Name = "Elemental Rage, Lesser";
+            Prerequisites.Add(barbarian.Level >= 4);
+            Benefit = "Use a swift action to cause extra elemental damage with melee attacks";
+            return this;
+        }
+
+        public Rage_Power Elemental_Rage(Barbarian barbarian)
+        {
+            Name = "Elemental Rage";
+            Prerequisites.Add(barbarian.Level >= 8);
+            Prerequisites.Add(barbarian.Rage_Powers.Contains(Lesser_Elemental_Rage(barbarian)));
+            Benefit = "Deal extra elemental damage with melee attacks";
+            return this;
+        }
+
+        public Rage_Power Greater_Elemental_Rage(Barbarian barbarian)
+        {
+            Name = "Elemental Rage, Greater";
+            Prerequisites.Add(barbarian.Level >= 12);
+            Prerequisites.Add(barbarian.Rage_Powers.Contains(Elemental_Rage(barbarian)));
+            Benefit = "Deal extra elemental damage on critical hits with melee weapons";
+            return this;
+        }
+
+        public Rage_Power Energy_Absorption(Barbarian barbarian)
+        {
+            Name = "Energy Absorption";
+            Prerequisites.Add(barbarian.Level >= 12);
+            Prerequisites.Add(barbarian.Rage_Powers.Contains(Greater_Energy_Resistance(barbarian)));
+            Benefit = "Absorb energy to gain temporary hit points";
+            return this;
+        }
+
+        public Rage_Power Energy_Eruption(Barbarian barbarian)
+        {
+            Name = "Energy Eruption";
+            Prerequisites.Add(barbarian.Level >= 16);
+            Prerequisites.Add(barbarian.Rage_Powers.Contains(Energy_Absorption(barbarian)));
+            Benefit = "Store absorbed energy and release it as a breath weapon attack";
+            return this;
+        }
+
+        public Rage_Power Energy_Resistance(Barbarian barbarian, string type)
+        {
+            Name = "Energy Resistance " + type; //acid, cold, electricity, fire, or sonic
+            Prerequisites.Add(!barbarian.Rage_Powers.Exists(x => x.Name == Name));
+            Benefit = "Gain resistance to one type of elemental damage";
+            return this;
+        }
+
+        public Rage_Power Greater_Energy_Resistance(Barbarian barbarian)
+        {
+            Name = "Energy Resistance, Greater";
+            Prerequisites.Add(barbarian.Level >= 8);
+            Prerequisites.Add(barbarian.Rage_Powers.Exists(x => x.Name.Contains("Energy Resistance")));
+            Benefit = "Halve damage from an elemental attack";
+            return this;
+        }
+
+        //Fearless Rage
     }
 }
