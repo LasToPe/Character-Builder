@@ -402,7 +402,96 @@ namespace Backend.Classes.Core.Class_Features
             Benefit = "While the barbarian is raging, when she takes hit point damage that would render her dying or dead, she remains conscious and raging until the end of her next turn after taking that damage, though she is disabled during that turn. She becomes dying or dead at the end of her next turn as normal for her current hit point total. This ability has no effect if the barbarian dies from a cause other than hit point damage, such as from a death effect or if her Constitution damage exceeds her Constitution score.";
             return this;
         }
+                
+        public Rage_Power Lesser_Daemon_Totem(Barbarian barbarian)
+        {
+            Name = "Daemon Totem, Lesser";
+            Prerequisites.Add(!barbarian.Rage_Powers.Exists(x => x.Name.Contains("Totem")));
+            Benefit = "While raging, the barbarian gains a +2 bonus on saving throws against acid damage, death effects, disease, and poison. This bonus increases by 1 for each daemon totem rage power the barbarian has, excluding this one.";
+            return this;
+        }
 
-        //Rage powers with D coming up
+        public Rage_Power Daemon_Totem(Barbarian barbarian)
+        {
+            Name = "Daemon Totem";
+            Prerequisites.Add(barbarian.Level >= 6);
+            Prerequisites.Add(barbarian.Rage_Powers.Contains(Lesser_Daemon_Totem(barbarian)));
+            Benefit = "While the barbarian is raging, her melee attacks impose a temporary negative level on her opponent on a successful critical hit. After 1 hour, these temporary negative levels disappear automatically (without a saving throw).";
+            return this;
+        }
+
+        public Rage_Power Greater_Daemon_Totem(Barbarian barbarian)
+        {
+            Name = "Daemon Totem, Greater";
+            Prerequisites.Add(barbarian.Level >= 10);
+            Prerequisites.Add(barbarian.Rage_Powers.Contains(Daemon_Totem(barbarian)));
+            Benefit = "If the barbarian kills an intelligent creature with a CR equal to at least half her character level while raging, she heals 5 hit points. If she is already at her maximum number of hit points, she instead gains 5 temporary hit points, which don’t stack if she kills multiple creatures.";
+            return this;
+        }
+
+        public Rage_Power Deadly_Accuracy(Barbarian barbarian)
+        {
+            Name = "Deadly Accuracy";
+            Prerequisites.Add(barbarian.Level >= 4);
+            Prerequisites.Add(barbarian.Rage_Powers.Contains()); //surprise accuracy
+            Benefit = "On critical threat when using surprise accuracy, double surprise accuracy bonus on roll to confirm critical hit.";
+            return this;
+        }
+
+        public Rage_Power Deathless_Frenzy(Barbarian barbarian)
+        {
+            Name = "Deathless Frenzy";
+            Prerequisites.Add(barbarian.Level >= 12);
+            Benefit = "Ignore all consequences of being at 0 or lower hit points for one round while raging";
+            return this;
+        }
+
+        public Rage_Power Disemboweling_Tusks(Barbarian barbarian)
+        {
+            Name = "Disemboweling Tusks";
+            Prerequisites.Add(barbarian.Level >= 10);
+            Benefit = "While raging, deal Con damage when you confirm a critical hit with your gore attack";
+            return this;
+        }
+
+        public Rage_Power Disruptive(Barbarian barbarian)
+        {
+            Name = "Disruptive";
+            Prerequisites.Add(barbarian.Level >= 8);
+            Prerequisites.Add(barbarian.Rage_Powers.Contains()); //superstition
+            Benefit = "Gain the Disruptive feat as a bonus feat";
+            return this;
+        }
+
+        public Rage_Power Dragon_Totem(Barbarian barbarian)
+        {
+            Name = "Dragon Totem";
+            Prerequisites.Add(!barbarian.Rage_Powers.Exists(x => x.Name.Contains("Totem")));
+            Prerequisites.Add(barbarian.Level >= 6);
+            Prerequisites.Add(barbarian.Rage_Powers.Contains(Animal_Fury()));
+            Prerequisites.Add(barbarian.Rage_Powers.Contains()); //intimidating glare
+            Benefit = "Gain bonuses while raging";
+            return this;
+        }
+
+        public Rage_Power Dragon_Totem_Resilience(Barbarian barbarian)
+        {
+            Name = "Dragon Totem Resilience";
+            Prerequisites.Add(barbarian.Level >= 8);
+            Prerequisites.Add(barbarian.Rage_Powers.Contains(Dragon_Totem(barbarian)));
+            Benefit = "Gain energy resistance while raging";
+            return this;
+        }
+
+        public Rage_Power Dragon_Totem_Wings(Barbarian barbarian)
+        {
+            Name = "Dragon Totem Wings";
+            Prerequisites.Add(barbarian.Level >= 10);
+            Prerequisites.Add(barbarian.Rage_Powers.Contains(Dragon_Totem_Resilience(barbarian)));
+            Benefit = "Gain wings and a fly speed while raging";
+            return this;
+        }
+
+        //next Eater of Magic
     }
 }
