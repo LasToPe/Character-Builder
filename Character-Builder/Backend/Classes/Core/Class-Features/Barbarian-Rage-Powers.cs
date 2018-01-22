@@ -28,7 +28,7 @@ namespace Backend.Classes.Core.Class_Features
         public Rage_Power Greater_Animal_Fury(Barbarian barbarian)
         {
             Name = "Animal Fury, Greater";
-            Prerequisites.Add(barbarian.Rage_Powers.Contains(Animal_Fury()));
+            Prerequisites.Add(barbarian.Rage_Powers.Exists(x => x.Name == "Animal Fury"));
             Benefit = "As animal fury, but your bite attack deals damage as if you were one size larger.";
             return this;
         }
@@ -53,7 +53,7 @@ namespace Backend.Classes.Core.Class_Features
         {
             Name = "Atavism Totem";
             Prerequisites.Add(barbarian.Level >= 6);
-            Prerequisites.Add(barbarian.Rage_Powers.Contains(Lesser_Atavism_Totem(barbarian)));
+            Prerequisites.Add(barbarian.Rage_Powers.Exists(x => x.Name == "Atavism Totem, Lesser"));
             Benefit = "You gain the ferocity ability.";
             return this;
         }
@@ -62,7 +62,7 @@ namespace Backend.Classes.Core.Class_Features
         {
             Name = "Atavism Totem, Greater";
             Prerequisites.Add(barbarian.Level >= 10);
-            Prerequisites.Add(barbarian.Rage_Powers.Contains(Atavism_Totem(barbarian)));
+            Prerequisites.Add(barbarian.Rage_Powers.Exists(x => x.Name == "Atavism Totem"));
             Benefit = "You gain the trample ability.";
             return this;
         }
@@ -78,7 +78,7 @@ namespace Backend.Classes.Core.Class_Features
         {
             Name = "Battle Roar";
             Prerequisites.Add(barbarian.Level >= 6);
-            Prerequisites.Add(barbarian.Rage_Powers.Contains()); //Intimidating Glare
+            Prerequisites.Add(barbarian.Rage_Powers.Exists(x => x.Name == "Intimidating Glare"));
             Benefit = "You deal an additional 1d6 points of sonic damage to an opponent you successfully demoralized using intimidating glare.";
             return this;
         }
@@ -95,7 +95,7 @@ namespace Backend.Classes.Core.Class_Features
         {
             Name = "Beast Totem";
             Prerequisites.Add(barbarian.Level >= 6);
-            Prerequisites.Add(barbarian.Rage_Powers.Contains(Lesser_Beast_Totem(barbarian)));
+            Prerequisites.Add(barbarian.Rage_Powers.Exists(x => x.Name == "Beast Totem, Lesser"));
             Benefit = "Gain a natural armor bonus"; // +1 per 4 levels
             return this;
         }
@@ -104,7 +104,7 @@ namespace Backend.Classes.Core.Class_Features
         {
             Name = "Beast Totem, Greater";
             Prerequisites.Add(barbarian.Level >= 10);
-            Prerequisites.Add(barbarian.Rage_Powers.Contains(Beast_Totem(barbarian)));
+            Prerequisites.Add(barbarian.Rage_Powers.Exists(x => x.Name == "Beast Totem"));
             Benefit = "Gain a pounce attack"; //and claws 1d8 crit x3
             //functionality 
             return this;
@@ -114,7 +114,7 @@ namespace Backend.Classes.Core.Class_Features
         {
             Name = "Bestial Climber";
             Prerequisites.Add(barbarian.Level >= 6);
-            Prerequisites.Add(barbarian.Rage_Powers.Contains()); //raging climber
+            Prerequisites.Add(barbarian.Rage_Powers.Exists(x => x.Name == "Raging Climber"));
             Benefit = "Climb at your normal land speed while raging";
             return this;
         }
@@ -123,7 +123,7 @@ namespace Backend.Classes.Core.Class_Features
         {
             Name = "Bestial Leaper";
             Prerequisites.Add(barbarian.Level >= 6);
-            Prerequisites.Add(barbarian.Rage_Powers.Contains()); //raging leaper
+            Prerequisites.Add(barbarian.Rage_Powers.Exists(x => x.Name == "Raging Leaper"));
             Benefit = "Take a standard action while moving during a rage";
             return this;
         }
@@ -132,7 +132,7 @@ namespace Backend.Classes.Core.Class_Features
         {
             Name = "Bestial Swimmer";
             Prerequisites.Add(barbarian.Level >= 6);
-            Prerequisites.Add(barbarian.Rage_Powers.Contains()); //raging swimmer
+            Prerequisites.Add(barbarian.Rage_Powers.Exists(x => x.Name == "Raging Swimmer"));
             Benefit = "Swim at your normal land speed while raging";
             return this;
         }
@@ -141,16 +141,16 @@ namespace Backend.Classes.Core.Class_Features
         {
             Name = "Bleeding Blow";
             Prerequisites.Add(barbarian.Level >= 8);
-            Prerequisites.Add(barbarian.Rage_Powers.Contains()); //powerful blow
+            Prerequisites.Add(barbarian.Rage_Powers.Exists(x => x.Name == "Powerful Blow"));
             Benefit = "Deal bleed damage with your powerful blows";
             return this;
         }
 
-        public Rage_Power Bloody_Bite(Barbarian barbarian, Character character)
+        public Rage_Power Bloody_Bite(Barbarian barbarian, Character character) //working??
         {
             Name = "Bloody Bite";
             Prerequisites.Add(character.Race is Races.Core.Half_orc);
-            Prerequisites.Add(barbarian.Rage_Powers.Contains(Animal_Fury())); // or other natural bite
+            Prerequisites.Add(barbarian.Rage_Powers.Exists(x => x.Name == "Animal Fury")); // or other natural bite
             Benefit = "Your bite attack deals 1d6 points of bleed damage in addition to its other effects.";
             return this;
         }
@@ -197,7 +197,7 @@ namespace Backend.Classes.Core.Class_Features
         public Rage_Power Greater_Brawler(Barbarian barbarian)
         {
             Name = "Brawler, Greater";
-            Prerequisites.Add(barbarian.Rage_Powers.Contains(Brawler()));
+            Prerequisites.Add(barbarian.Rage_Powers.Exists(x => x.Name == "Brawler"));
             Benefit = "Gain Two-Weapon Fighting while raging";
             return this;
         }
@@ -221,7 +221,7 @@ namespace Backend.Classes.Core.Class_Features
         {
             Name = "Celestial Totem";
             Prerequisites.Add(barbarian.Level >= 8);
-            Prerequisites.Add(barbarian.Rage_Powers.Contains(Lesser_Celestial_Totem(barbarian)));
+            Prerequisites.Add(barbarian.Rage_Powers.Exists(x => x.Name == "Celestial Totem, Lesser"));
             Benefit = "Gain a halo that shines as daylight and triggers invisibility purge (only reveals non-good creatures) in the barbarian’s square and each adjacent square.";
             return this;
         }
@@ -230,7 +230,7 @@ namespace Backend.Classes.Core.Class_Features
         {
             Name = "Celestial Totem, Greater";
             Prerequisites.Add(barbarian.Level >= 12);
-            Prerequisites.Add(barbarian.Rage_Powers.Contains(Celestial_Totem(barbarian)));
+            Prerequisites.Add(barbarian.Rage_Powers.Exists(x => x.Name == "Celestial Totem"));
             Benefit = "Gain SR while raging equal to 11 + barbarian class level against spells with the evil descriptor; also gain +2 bonus on all saves against spells and effects from evil creatures.";
             return this;
         }
@@ -247,7 +247,7 @@ namespace Backend.Classes.Core.Class_Features
         {
             Name = "Chaos Totem";
             Prerequisites.Add(barbarian.Level >= 6);
-            Prerequisites.Add(barbarian.Rage_Powers.Contains(Lesser_Chaos_Totem(barbarian)));
+            Prerequisites.Add(barbarian.Rage_Powers.Exists(x => x.Name == "Chaos Totem, Lesser"));
             Benefit = "Gain a bonus to Escape Artist and a chance to avoid critical hits";
             return this;
         }
@@ -256,7 +256,7 @@ namespace Backend.Classes.Core.Class_Features
         {
             Name = "Chaos Totem, Greater";
             Prerequisites.Add(barbarian.Level >= 10);
-            Prerequisites.Add(barbarian.Rage_Powers.Contains(Chaos_Totem(barbarian)));
+            Prerequisites.Add(barbarian.Rage_Powers.Exists(x => x.Name == "Chaos Totem"));
             Benefit = "Gain DR/lawful and weapons count as chaotic";
             return this;
         }
@@ -281,7 +281,7 @@ namespace Backend.Classes.Core.Class_Features
         {
             Name = "Crippling Blow";
             Prerequisites.Add(barbarian.Level >= 8);
-            Prerequisites.Add(barbarian.Rage_Powers.Contains()); //powerful blow
+            Prerequisites.Add(barbarian.Rage_Powers.Exists(x => x.Name == "Powerful Blow"));
             Benefit = "Deal Strength or Dexterity damage with your powerful blows";
             return this;
         }
@@ -298,7 +298,7 @@ namespace Backend.Classes.Core.Class_Features
         {
             Name = "Cult Totem";
             Prerequisites.Add(barbarian.Level >= 6);
-            Prerequisites.Add(barbarian.Rage_Powers.Contains(Lesser_Cult_Totem(barbarian)));
+            Prerequisites.Add(barbarian.Rage_Powers.Exists(x => x.Name == "Cult Totem, Lesser"));
             Benefit = "The barbarian can make an attack of opportunity against a creature within her reach who damages an ally of the barbarian with a melee attack. Only the enemy, not the barbarian’s ally, needs to be within the barbarian’s melee reach in order for the barbarian to make this attack of opportunity. Once the barbarian makes an attack of opportunity against a creature with this ability, she can’t use this ability to make an attack of opportunity against the same creature for 24 hours.";
             return this;
         }
@@ -307,7 +307,7 @@ namespace Backend.Classes.Core.Class_Features
         {
             Name = "Cult Totem, Greater";
             Prerequisites.Add(barbarian.Level >= 10);
-            Prerequisites.Add(barbarian.Rage_Powers.Contains(Cult_Totem(barbarian)));
+            Prerequisites.Add(barbarian.Rage_Powers.Exists(x => x.Name == "Cult Totem"));
             Benefit = "While the barbarian is raging, when she takes hit point damage that would render her dying or dead, she remains conscious and raging until the end of her next turn after taking that damage, though she is disabled during that turn. She becomes dying or dead at the end of her next turn as normal for her current hit point total. This ability has no effect if the barbarian dies from a cause other than hit point damage, such as from a death effect or if her Constitution damage exceeds her Constitution score.";
             return this;
         }
@@ -324,7 +324,7 @@ namespace Backend.Classes.Core.Class_Features
         {
             Name = "Daemon Totem";
             Prerequisites.Add(barbarian.Level >= 6);
-            Prerequisites.Add(barbarian.Rage_Powers.Contains(Lesser_Daemon_Totem(barbarian)));
+            Prerequisites.Add(barbarian.Rage_Powers.Exists(x => x.Name == "Daemon Totem, Lesser"));
             Benefit = "While the barbarian is raging, her melee attacks impose a temporary negative level on her opponent on a successful critical hit. After 1 hour, these temporary negative levels disappear automatically (without a saving throw).";
             return this;
         }
@@ -333,7 +333,7 @@ namespace Backend.Classes.Core.Class_Features
         {
             Name = "Daemon Totem, Greater";
             Prerequisites.Add(barbarian.Level >= 10);
-            Prerequisites.Add(barbarian.Rage_Powers.Contains(Daemon_Totem(barbarian)));
+            Prerequisites.Add(barbarian.Rage_Powers.Exists(x => x.Name == "Daemon Totem"));
             Benefit = "If the barbarian kills an intelligent creature with a CR equal to at least half her character level while raging, she heals 5 hit points. If she is already at her maximum number of hit points, she instead gains 5 temporary hit points, which don’t stack if she kills multiple creatures.";
             return this;
         }
@@ -342,7 +342,7 @@ namespace Backend.Classes.Core.Class_Features
         {
             Name = "Deadly Accuracy";
             Prerequisites.Add(barbarian.Level >= 4);
-            Prerequisites.Add(barbarian.Rage_Powers.Contains()); //surprise accuracy
+            Prerequisites.Add(barbarian.Rage_Powers.Exists(x => x.Name == "Surprise Accuracy"));
             Benefit = "On critical threat when using surprise accuracy, double surprise accuracy bonus on roll to confirm critical hit.";
             return this;
         }
@@ -367,7 +367,7 @@ namespace Backend.Classes.Core.Class_Features
         {
             Name = "Disruptive";
             Prerequisites.Add(barbarian.Level >= 8);
-            Prerequisites.Add(barbarian.Rage_Powers.Contains()); //superstition
+            Prerequisites.Add(barbarian.Rage_Powers.Exists(x => x.Name == "Superstition"));
             Benefit = "Gain the Disruptive feat as a bonus feat";
             return this;
         }
@@ -377,8 +377,8 @@ namespace Backend.Classes.Core.Class_Features
             Name = "Dragon Totem";
             Prerequisites.Add(!barbarian.Rage_Powers.Exists(x => x.Name.Contains("Totem")));
             Prerequisites.Add(barbarian.Level >= 6);
-            Prerequisites.Add(barbarian.Rage_Powers.Contains(Animal_Fury()));
-            Prerequisites.Add(barbarian.Rage_Powers.Contains()); //intimidating glare
+            Prerequisites.Add(barbarian.Rage_Powers.Exists(x => x.Name == "Animal Fury"));
+            Prerequisites.Add(barbarian.Rage_Powers.Exists(x => x.Name == "Intimidating Glare"));
             Benefit = "Gain bonuses while raging";
             return this;
         }
@@ -387,7 +387,7 @@ namespace Backend.Classes.Core.Class_Features
         {
             Name = "Dragon Totem Resilience";
             Prerequisites.Add(barbarian.Level >= 8);
-            Prerequisites.Add(barbarian.Rage_Powers.Contains(Dragon_Totem(barbarian)));
+            Prerequisites.Add(barbarian.Rage_Powers.Exists(x => x.Name == "Dragon Totem"));
             Benefit = "Gain energy resistance while raging";
             return this;
         }
@@ -396,7 +396,7 @@ namespace Backend.Classes.Core.Class_Features
         {
             Name = "Dragon Totem Wings";
             Prerequisites.Add(barbarian.Level >= 10);
-            Prerequisites.Add(barbarian.Rage_Powers.Contains(Dragon_Totem_Resilience(barbarian)));
+            Prerequisites.Add(barbarian.Rage_Powers.Exists(x => x.Name == "Dragon Totem Resilience"));
             Benefit = "Gain wings and a fly speed while raging";
             return this;
         }
@@ -405,7 +405,7 @@ namespace Backend.Classes.Core.Class_Features
         {
             Name = "Eater of Magic";
             Prerequisites.Add(barbarian.Level >= 10);
-            Prerequisites.Add(barbarian.Rage_Powers.Contains()); //superstition
+            Prerequisites.Add(barbarian.Rage_Powers.Exists(x => x.Name == "Superstition"));
             Benefit = "Take a second saving throw and gain temporary hit points";
             return this;
         }
@@ -422,7 +422,7 @@ namespace Backend.Classes.Core.Class_Features
         {
             Name = "Elemental Rage";
             Prerequisites.Add(barbarian.Level >= 8);
-            Prerequisites.Add(barbarian.Rage_Powers.Contains(Lesser_Elemental_Rage(barbarian)));
+            Prerequisites.Add(barbarian.Rage_Powers.Exists(x => x.Name == "Elemental Rage, Lesser"));
             Benefit = "Deal extra elemental damage with melee attacks";
             return this;
         }
@@ -431,7 +431,7 @@ namespace Backend.Classes.Core.Class_Features
         {
             Name = "Elemental Rage, Greater";
             Prerequisites.Add(barbarian.Level >= 12);
-            Prerequisites.Add(barbarian.Rage_Powers.Contains(Elemental_Rage(barbarian)));
+            Prerequisites.Add(barbarian.Rage_Powers.Exists(x => x.Name == "Elemental Rage"));
             Benefit = "Deal extra elemental damage on critical hits with melee weapons";
             return this;
         }
@@ -440,7 +440,7 @@ namespace Backend.Classes.Core.Class_Features
         {
             Name = "Energy Absorption";
             Prerequisites.Add(barbarian.Level >= 12);
-            Prerequisites.Add(barbarian.Rage_Powers.Contains(Greater_Energy_Resistance(barbarian)));
+            Prerequisites.Add(barbarian.Rage_Powers.Exists(x => x.Name == "Energy Resistance, Greater"));
             Benefit = "Absorb energy to gain temporary hit points";
             return this;
         }
@@ -449,7 +449,7 @@ namespace Backend.Classes.Core.Class_Features
         {
             Name = "Energy Eruption";
             Prerequisites.Add(barbarian.Level >= 16);
-            Prerequisites.Add(barbarian.Rage_Powers.Contains(Energy_Absorption(barbarian)));
+            Prerequisites.Add(barbarian.Rage_Powers.Exists(x => x.Name == "Energy Absorption"));
             Benefit = "Store absorbed energy and release it as a breath weapon attack";
             return this;
         }
@@ -479,10 +479,10 @@ namespace Backend.Classes.Core.Class_Features
             return this;
         }
 
-        public Rage_Power Feasting_Bite(Barbarian barbarian, Character character)
+        public Rage_Power Feasting_Bite(Barbarian barbarian)
         {
             Name = "Feasting Bite";
-            Prerequisites.Add(barbarian.Rage_Powers.Contains(Bloody_Bite(barbarian, character)));
+            Prerequisites.Add(barbarian.Rage_Powers.Exists(x => x.Name == "Bloody Bite"));
             Benefit = "When the barbarian confirms a critical hit with her bite attack, she regains a number of hit points equal to half the damage dealt. Activating this ability consumes 1 round of rage.";
             return this;
         }
@@ -491,7 +491,7 @@ namespace Backend.Classes.Core.Class_Features
         {
             Name = "Feast of Blood";
             Prerequisites.Add(barbarian.Level >= 14);
-            Prerequisites.Add(barbarian.Rage_Powers.Contains(Bloody_Fist(barbarian)));
+            Prerequisites.Add(barbarian.Rage_Powers.Exists(x => x.Name == "Bloody Fist"));
             Benefit = "While raging, the barbarian may feast on the organs of her foes and absorb their power.";
             return this;
         }
@@ -507,7 +507,7 @@ namespace Backend.Classes.Core.Class_Features
         {
             Name = "Ferocious Beast, Greater";
             Prerequisites.Add(barbarian.Level >= 8);
-            Prerequisites.Add(barbarian.Rage_Powers.Contains(Ferocious_Beast(barbarian)));
+            Prerequisites.Add(barbarian.Rage_Powers.Exists(x => x.Name == "Ferocious Beast"));
             Benefit = "Your animal companion shares the benefits of your rage powers that are constant in effect but gains no benefit from rage powers that require actions to activate, even if they are free actions.";
             return this;
         }
@@ -523,7 +523,7 @@ namespace Backend.Classes.Core.Class_Features
         {
             Name = "Ferocious Mount, Greater";
             Prerequisites.Add(barbarian.Level >= 8);
-            Prerequisites.Add(barbarian.Rage_Powers.Contains(Ferocious_Mount(barbarian)));
+            Prerequisites.Add(barbarian.Rage_Powers.Exists(x => x.Name == "Ferocious Mount"));
             Benefit = "Allow your mount to benefit from rage powers";
             return this;
         }
@@ -532,7 +532,7 @@ namespace Backend.Classes.Core.Class_Features
         {
             Name = "Ferocious Trample";
             Prerequisites.Add(barbarian.Level >= 8);
-            Prerequisites.Add(barbarian.Rage_Powers.Contains(Ferocious_Mount(barbarian)));
+            Prerequisites.Add(barbarian.Rage_Powers.Exists(x => x.Name == "Ferocious Mount"));
             Benefit = "While raging your mount gains the trample ability";
             return this;
         }
@@ -541,7 +541,7 @@ namespace Backend.Classes.Core.Class_Features
         {
             Name = "Ferocious Trample, Greater";
             Prerequisites.Add(barbarian.Level >= 12);
-            Prerequisites.Add(barbarian.Rage_Powers.Contains(Ferocious_Trample(barbarian)));
+            Prerequisites.Add(barbarian.Rage_Powers.Exists(x => x.Name == "Ferocious Trample"));
             Benefit = "Your mount can trample larger creatures and make overrun attacks while raging";
             return this;
         }
@@ -559,7 +559,7 @@ namespace Backend.Classes.Core.Class_Features
         {
             Name = "Fiend Totem";
             Prerequisites.Add(barbarian.Level >= 6);
-            Prerequisites.Add(barbarian.Rage_Powers.Contains(Lesser_Fiend_Totem(barbarian)));
+            Prerequisites.Add(barbarian.Rage_Powers.Exists(x => x.Name == "Fiend Totem, Lesser"));
             Benefit = "Attackers take damage when they hit you in melee"; //1d6
             //functionality
             return this;
@@ -569,7 +569,7 @@ namespace Backend.Classes.Core.Class_Features
         {
             Name = "Fiend Totem, Greater";
             Prerequisites.Add(barbarian.Level >= 10);
-            Prerequisites.Add(barbarian.Rage_Powers.Contains(Fiend_Totem(barbarian)));
+            Prerequisites.Add(barbarian.Rage_Powers.Exists(x => x.Name == "Fiend Totem"));
             Benefit = "Non-evil creatures adjacent to the barbarian take damage and are shaken";
             return this;
         }
@@ -608,7 +608,7 @@ namespace Backend.Classes.Core.Class_Features
         public Rage_Power Gearbreaker(Barbarian barbarian)
         {
             Name = "Gearbreaker";
-            Prerequisites.Add(barbarian.Rage_Powers.Contains(); //smasher
+            Prerequisites.Add(barbarian.Rage_Powers.Exists(x => x.Name == "Smasher"));
             Benefit = "Once per round while raging, whenever you make an attack against a construct, you can ignore an amount of that construct’s hardness equal to your barbarian level. This ability must be used before the attack roll is made. This power stacks with hard hitter.";
             return this;
         }
@@ -617,7 +617,7 @@ namespace Backend.Classes.Core.Class_Features
         {
             Name = "Ghost Rager";
             Prerequisites.Add(barbarian.Level >= 6);
-            Prerequisites.Add(barbarian.Rage_Powers.Contains()); //superstition
+            Prerequisites.Add(barbarian.Rage_Powers.Exists(x => x.Name == "Superstition"));
             Benefit = "Deal normal damage to incorporeal creatures";
             return this;
         }
@@ -641,7 +641,7 @@ namespace Backend.Classes.Core.Class_Features
         {
             Name = "Ground Breaker, Greater";
             Prerequisites.Add(barbarian.Level >= 8);
-            Prerequisites.Add(barbarian.Rage_Powers.Contains(Ground_Breaker(barbarian)));
+            Prerequisites.Add(barbarian.Rage_Powers.Exists(x => x.Name == "Ground Breaker"));
             Benefit = "Extend ground breaker’s radius of difficult terrain";
             return this;
         }
@@ -657,7 +657,7 @@ namespace Backend.Classes.Core.Class_Features
         {
             Name = "Guarded Life, Greater";
             Prerequisites.Add(barbarian.Level >= 6);
-            Prerequisites.Add(barbarian.Rage_Powers.Contains(Guarded_Life()));
+            Prerequisites.Add(barbarian.Rage_Powers.Exists(x => x.Name == "Guarded Life"));
             Benefit = "Convert more damage to nonlethal damage";
             return this;
         }
