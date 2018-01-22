@@ -669,6 +669,68 @@ namespace Backend.Classes.Core.Class_Features
             return this;
         }
 
-        //Hive totem
+        public Rage_Power Hive_Totem(Barbarian barbarian)
+        {
+            Name = "Hive Totem";
+            Prerequisites.Add(!barbarian.Rage_Powers.Exists(x => x.Name.Contains("Totem")));
+            Prerequisites.Add(barbarian.Level >= 4);
+            Prerequisites.Add(barbarian.Rage_Powers.Exists(x => x.Name == "Animal Fury"));
+            Benefit = "Take half damage from swarms while raging";
+            return this;
+        }
+
+        public Rage_Power Hive_Totem_Resilience(Barbarian barbarian)
+        {
+            Name = "Hive Totem Resilience";
+            Prerequisites.Add(barbarian.Level >= 6);
+            Prerequisites.Add(barbarian.Rage_Powers.Exists(x => x.Name == "Hive Totem"));
+            Benefit = "Take no damage from swarms while raging";
+            return this;
+        }
+
+        public Rage_Power Hive_Totem_Toxicity(Barbarian barbarian)
+        {
+            Name = "Hive Totem Toxicity";
+            Prerequisites.Add(barbarian.Level >= 8);
+            Prerequisites.Add(barbarian.Rage_Powers.Exists(x => x.Name == "Hive Totem Resilience"));
+            Benefit = "Do Constitution damage with a bite while raging";
+            return this;
+        }
+
+        public Rage_Power Lesser_Hurling()
+        {
+            Name = "Hurling, Lesser";
+            Benefit = "You can lift and throw large objects to do damage";
+            return this;
+        }
+
+        public Rage_Power Hurling(Barbarian barbarian)
+        {
+            Name = "Hurling";
+            Prerequisites.Add(barbarian.Level >= 8);
+            Prerequisites.Add(barbarian.Rage_Powers.Exists(x => x.Name == "Hurling, Lesser"));
+            Benefit = "Increase the range and size allowed for a hurled object";
+            return this;
+        }
+
+        public Rage_Power Greater_Hurling(Barbarian barbarian)
+        {
+            Name = "Hurling, Greater";
+            Prerequisites.Add(barbarian.Level >= 12);
+            Prerequisites.Add(barbarian.Rage_Powers.Exists(x => x.Name == "Hurling"));
+            Benefit = "Increase the range and size allowed for a hurled object";
+            return this;
+        }
+
+        public Rage_Power Hurling_Charge(Barbarian barbarian)
+        {
+            Name = "Hurling Charge";
+            Prerequisites.Add(barbarian.Level >= 6);
+            Prerequisites.Add(barbarian.Rage_Powers.Exists(x => x.Name == "Hurling, Lesser"));
+            Benefit = "You can hurl an object as part of a charge";
+            return this;
+        }
+
+        //Impelling Disarm
     }
 }
