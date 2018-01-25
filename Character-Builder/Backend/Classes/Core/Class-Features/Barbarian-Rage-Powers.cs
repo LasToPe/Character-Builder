@@ -731,6 +731,333 @@ namespace Backend.Classes.Core.Class_Features
             return this;
         }
 
-        //Impelling Disarm
+        public Rage_Power Impelling_Disarm(Barbarian barbarian)
+        {
+            Name = "Impelling Disarm";
+            Prerequisites.Add(barbarian.Level >= 4);
+            Benefit = "Once per rage, you may attempt to hit another opponent with a weapon you disarmed from a different opponent.";
+            return this;
+        }
+
+        public Rage_Power Increased_Damage_Reduction(Barbarian barbarian)
+        {
+            Name = "Increased Damage Reduction";
+            Prerequisites.Add(barbarian.Level >= 8);
+            Benefit = "Gain DR/- while raging"; //increases by 1, can be taken 3 times
+            return this;
+        }
+
+        public Rage_Power Inspire_Ferocity(Barbarian barbarian)
+        {
+            Name = "Inspire Ferocity";
+            Prerequisites.Add(barbarian.Rage_Powers.Exists(x => x.Name == "Reckless Abandon"));
+            Benefit = "Use a move action to share reckless abandon with allies";
+            return this;
+        }
+
+        public Rage_Power Internal_Fortitude(Barbarian barbarian)
+        {
+            Name = "Internal Fortitude";
+            Prerequisites.Add(barbarian.Level >= 8);
+            Benefit = "Gain immunity to nauseated and sickened conditions";
+            return this;
+        }
+
+        public Rage_Power Intimidating_Glare()
+        {
+            Name = "Intimidating Glare";
+            Benefit = "Intimidate an opponent as a move action";
+            return this;
+        }
+
+        public Rage_Power Knockback()
+        {
+            Name = "Knockback";
+            Benefit = "Make a bull rush in place of a melee attack";
+            return this;
+        }
+
+        public Rage_Power Knockdown()
+        {
+            Name = "Knockdown";
+            Benefit = "Make a trip attack in place of a melee attack";
+            return this;
+        }
+
+        public Rage_Power Lethal_Accuracy(Barbarian barbarian)
+        {
+            Name = "Lethal Accuracy";
+            Prerequisites.Add(barbarian.Level >= 16);
+            Prerequisites.Add(barbarian.Rage_Powers.Exists(x => x.Name == "Deadly Accuracy"));
+            Benefit = "Deal more damage when you score a critical hit with surprise accuracy";
+            return this;
+        }
+
+        public Rage_Power Linnorm_Death_Curse_Cairn(Barbarian barbarian)
+        {
+            Name = "Linnorm Death Curse, Cairn";
+            Prerequisites.Add(barbarian.Level >= 4);
+            Benefit = "Your melee attacks deal an additional 1 point of negative energy damage. If the character is knocked unconscious or killed by an attack or spell, the attacker suffers the curse of decay (Will negates).";
+            return this;
+        }
+
+        public Rage_Power Linnorm_Death_Curse_Crag(Barbarian barbarian)
+        {
+            Name = "Linnorm Death Curse, Crag";
+            Prerequisites.Add(barbarian.Level >= 4);
+            Benefit = "Your melee attacks deal an additional 1 point of fire damage. If the character is knocked unconscious or killed by an attack or spell, the attacker suffers the curse of fire (Will negates).";
+            return this;
+        }
+
+        public Rage_Power Linnorm_Death_Curse_Fjord(Barbarian barbarian)
+        {
+            Name = "Linnorm Death Curse, Fjord";
+            Prerequisites.Add(barbarian.Level >= 4);
+            Benefit = "Your melee attacks deal an additional 1 point of cold damage. If the character is knocked unconscious or killed by an attack or spell, the attacker suffers the curse of drowning (Will negates).";
+            return this;
+        }
+
+        public Rage_Power Linnorm_Death_Curse_Ice(Barbarian barbarian)
+        {
+            Name = "Linnorm Death Curse, Ice";
+            Prerequisites.Add(barbarian.Level >= 4);
+            Benefit = "Your melee attacks deal an additional 1 point of cold damage. If the character is knocked unconscious or killed, the attacker suffers the curse of frost.";
+            return this;
+        }
+
+        public Rage_Power Linnorm_Death_Curse_Taiga(Barbarian barbarian)
+        {
+            Name = "Linnorm Death Curse, Taiga";
+            Prerequisites.Add(barbarian.Level >= 4);
+            Benefit = "Your melee attacks deal an additional 1 point of electricity damage. If the character is knocked unconscious or killed by an attack or spell, the attacker suffers the curse of electricity (Will negates).";
+            return this;
+        }
+
+        public Rage_Power Linnorm_Death_Curse_Tarn(Barbarian barbarian)
+        {
+            Name = "Linnorm Death Curse, Tarn";
+            Prerequisites.Add(barbarian.Level >= 4);
+            Benefit = "Your melee attacks deal an additional 1 point of acid damage. If the character is knocked unconscious or killed by an attack or spell, the attacker suffers the curse of death (Will negates).";
+            return this;
+        }
+
+        public Rage_Power Linnorm_Death_Curse_Tor(Barbarian barbarian)
+        {
+            Name = "Linnorm Death Curse, Tor";
+            Prerequisites.Add(barbarian.Level >= 8);
+            Benefit = "Your melee attacks deal an additional 1 point of fire damage. If the character is knocked unconscious or killed by an attack or spell, the attacker suffers the curse of boiling blood (Will negates).";
+            return this;
+        }
+
+        public Rage_Power Liquid_Courage()
+        {
+            Name = "Liquid Courage";
+            Benefit = "Alcoholic beverages give you a morale bonus while raging";
+            return this;
+        }
+
+        public Rage_Power Low_Light_Vision()
+        {
+            Name = "Low-Light Vision";
+            Benefit = "Gain low-light vision while raging";
+            return this;
+        }
+
+        public Rage_Power Mighty_Swing(Barbarian barbarian)
+        {
+            Name = "Mighty Swing";
+            Prerequisites.Add(barbarian.Level >= 12);
+            Benefit = "Automatically confirm a critical hit";
+            return this;
+        }
+
+        public Rage_Power Moment_of_Clarity()
+        {
+            Name = "Moment of Clarity";
+            Benefit = "Remove benefits and penalties of raging for 1 round";
+            return this;
+        }
+
+        public Rage_Power Night_Vision(Barbarian barbarian)
+        {
+            Name = "Night Vision";
+            Prerequisites.Add(barbarian.Rage_Powers.Exists(x => x.Name == "Low-Light Vision")); //or racial LLV
+            Benefit = "Gain darkvision 60 ft while raging";
+            return this;
+        }
+
+        public Rage_Power No_Escape()
+        {
+            Name = "No Escape";
+            Benefit = "Double move as an immediate action when an opponent withdraws";
+            return this;
+        }
+
+        public Rage_Power Overbearing_Advance()
+        {
+            Name = "Overbearing Advance";
+            Benefit = "Deal extra damage when using the overrun maneuver";
+            return this;
+        }
+
+        public Rage_Power Overbearing_Onslaught(Barbarian barbarian)
+        {
+            Name = "Overbearing Onslaught";
+            Prerequisites.Add(barbarian.Level >= 6);
+            Prerequisites.Add(barbarian.Rage_Powers.Exists(x => x.Name == "Overbearing Advance"));
+            Benefit = "Overrun multiple targets per round";
+            return this;
+        }
+
+        public Rage_Power Penetrating_Bite(Barbarian barbarian)
+        {
+            Name = "Penetrating Bite";
+            Prerequisites.Add(barbarian.Level >= 4);
+            Prerequisites.Add(barbarian.Rage_Powers.Exists(x => x.Name == "Animal Fury"));
+            Benefit = "When using animal fury while raging, your bite is able to pierce most resistances.";
+            return this;
+        }
+
+        public Rage_Power Perfect_Clarity(Barbarian barbarian)
+        {
+            Name = "Perfect Clarity";
+            Prerequisites.Add(barbarian.Rage_Powers.Exists(x => x.Name == "Moment of Clarity"));
+            Benefit = "Roll twice when disbelieving an illusion";
+            return this;
+        }
+
+        public Rage_Power Powerful_Blow()
+        {
+            Name = "Powerful Blow";
+            Benefit = "Deal extra damage with a single blow";
+            return this;
+        }
+
+        public Rage_Power Primal_Scent(Barbarian barbarian)
+        {
+            Name = "Primal Scent";
+            Prerequisites.Add(barbarian.Level >= 8);
+            Prerequisites.Add(barbarian.Rage_Powers.Exists(x => x.Name == "Scent"));
+            Benefit = "Gain a bonus when using scent";
+            return this;
+        }
+
+        public Rage_Power Quick_Reflexes()
+        {
+            Name = "Quick Reflexes";
+            Benefit = "Make additional attacks of opportunity while raging";
+            return this;
+        }
+
+        public Rage_Power Raging_Climber()
+        {
+            Name = "Raging Climber";
+            Benefit = "Gain a bonus on Climb checks while raging";
+            return this;
+        }
+
+        public Rage_Power Raging_Flier(Barbarian barbarian)
+        {
+            Name = "Raging Flier";
+            Prerequisites.Add(barbarian.Level >= 6);
+            Prerequisites.Add(barbarian.Rage_Powers.Exists(x => x.Name == "Raging Leaper"));
+            Benefit = "1/rage, fly up to your base speed as a move action and can use this flight as part of movement during a charge.";
+            return this;
+        }
+
+        public Rage_Power Raging_Grappler()
+        {
+            Name = "Raging Grappler";
+            Benefit = "While raging, whenever you succeed at a check to start a grapple, you can choose to deal damage as if you had also succeeded at a check to maintain the grapple. In addition, while raging, whenever you succeed at a combat maneuver check to maintain a grapple, you can choose to give yourself, the target of your grapple, or both the prone condition as a free action while continuing to maintain the grapple.";
+            return this;
+        }
+
+        public Rage_Power Raging_Leaper()
+        {
+            Name = "Raging Leaper";
+            Benefit = "Gain a bonus on Acrobatics checks to jump while raging";
+            return this;
+        }
+
+        public Rage_Power Raging_Swimmer()
+        {
+            Name = "Raging Swimmer";
+            Benefit = "Gain a bonus on Swim checks while raging";
+            return this;
+        }
+
+        public Rage_Power Reckless_Abandon()
+        {
+            Name = "Reckless Abandon";
+            Benefit = "Take a penalty to AC for extra accuracy while raging";
+            return this;
+        }
+
+        public Rage_Power Reflexive_Dodge(Barbarian barbarian)
+        {
+            Name = "Reflexive Dodge";
+            Prerequisites.Add(barbarian.Level >= 6);
+            Prerequisites.Add(barbarian.Rage_Powers.Exists(x => x.Name == "Rolling Dodge"));
+            Benefit = "Use your rolling dodge bonus on Reflex saving throws";
+            return this;
+        }
+
+        public Rage_Power Regenerative_Vigor(Barbarian barbarian)
+        {
+            Name = "Regenerative Vigor";
+            Prerequisites.Add(barbarian.Level >= 6);
+            Prerequisites.Add(barbarian.Rage_Powers.Exists(x => x.Name == "Renewed Vigor"));
+            Benefit = "Gain fast healing after using renewed vigor";
+            return this;
+        }
+
+        public Rage_Power Renewed_Life(Barbarian barbarian)
+        {
+            Name = "Renewed Life";
+            Prerequisites.Add(barbarian.Level >= 6);
+            Prerequisites.Add(barbarian.Rage_Powers.Exists(x => x.Name == "Renewed Vitality"));
+            Benefit = "Ignore temporary negative levels while raging";
+            return this;
+        }
+
+        public Rage_Power Renewed_Vigor(Barbarian barbarian)
+        {
+            Name = "Renewed Vigor";
+            Prerequisites.Add(barbarian.Level >= 4);
+            Benefit = "Heal damage as a standard action";
+            return this;
+        }
+
+        public Rage_Power Renewed_Vitality(Barbarian barbarian)
+        {
+            Name = "Renewed Vitality";
+            Prerequisites.Add(barbarian.Level >= 4);
+            Prerequisites.Add(barbarian.Rage_Powers.Exists(x => x.Name == "Renewed Vigor"));
+            Benefit = "Ignore ability damage or penalties while raging";
+            return this;
+        }
+
+        public Rage_Power Roaring_Drunk()
+        {
+            Name = "Roaring Drunk";
+            Benefit = "Gain a bonus on Intimidate checks and fear effect DC";
+            return this;
+        }
+
+        public Rage_Power Rolling_Dodge()
+        {
+            Name = "Rolling Dodge";
+            Benefit = "Gain a dodge bonus to AC against ranged attacks while raging";
+            return this;
+        }
+
+        public Rage_Power Roused_Anger()
+        {
+            Name = "Roused Anger";
+            Benefit = "Enter a rage even when fatigued";
+            return this;
+        }
+
+        //Savage Dirty Trick
     }
 }
