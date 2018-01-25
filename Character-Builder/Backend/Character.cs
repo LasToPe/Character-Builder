@@ -19,7 +19,8 @@ namespace Backend
             Wisdom_Score = 10;
             Charisma_Score = 10;
             Race = new Human("Strength");
-            Favored_Class = new Barbarian();
+            Character_Classes.Add(new Barbarian());
+            Favored_Class = Character_Classes[0];
             Hit_Points = 0;
             Initiative = 0;
             Armor_Class = 10;
@@ -63,6 +64,7 @@ namespace Backend
         public int Temporary_Charisma_Modifier { get => (Temporary_Charisma_Score - 10) / 2; }*/
 
         public Race Race { get; set; }
+        public List<Class> Character_Classes { get; }
         public Class Favored_Class { get; set; }
 
         public int Hit_Points { get; set; } //set needs change to accomodate automatic calculation
