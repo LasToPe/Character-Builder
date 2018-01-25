@@ -1058,6 +1058,225 @@ namespace Backend.Classes.Core.Class_Features
             return this;
         }
 
-        //Savage Dirty Trick
+        public Rage_Power Savage_Dirty_Trick(Barbarian barbarian)
+        {
+            Name = "Savage Dirty Trick";
+            Prerequisites.Add(barbarian.Level >= 6);
+            Benefit = "Once per round while raging, you can attempt a dirty trick combat maneuver in place of a melee attack.";
+            return this;
+        }
+
+        public Rage_Power Savage_Intuition()
+        {
+            Name = "Savage Intuition";
+            Benefit = "You may enter a rage even if you aren’t aware that combat has begun";
+            return this;
+        }
+
+        public Rage_Power Savage_Jaw(Barbarian barbarian)
+        {
+            Name = "Savage Jaw";
+            Prerequisites.Add(barbarian.Rage_Powers.Exists(x => x.Name == "Animal Fury"));
+            Benefit = "While raging, you can open your jaws wide and latch your teeth firmly onto your opponent.";
+            return this;
+        }
+
+        public Rage_Power Scent()
+        {
+            Name = "Scent";
+            Benefit = "Gain the scent ability when raging";
+            return this;
+        }
+
+        public Rage_Power Sharpened_Accuracy(Barbarian barbarian)
+        {
+            Name = "Sharpened Accuracy";
+            Prerequisites.Add(barbarian.Level >= 8);
+            Prerequisites.Add(barbarian.Rage_Powers.Exists(x => x.Name == "Surprise Accuracy"));
+            Benefit = "Surprise accuracy ignores concealment and cover";
+            return this;
+        }
+
+        public Rage_Power Smasher()
+        {
+            Name = "Smasher";
+            Benefit = "When sundering an unattended object, ignore hardness";
+            return this;
+        }
+
+        public Rage_Power Spell_Sunder(Barbarian barbarian)
+        {
+            Name = "Spell Sunder";
+            Prerequisites.Add(barbarian.Level >= 6);
+            Prerequisites.Add(barbarian.Rage_Powers.Exists(x => x.Name == "Witch Hunter"));
+            Benefit = "Sunder spells with a combat maneuver check";
+            return this;
+        }
+
+        public Rage_Power Spellbreaker(Barbarian barbarian)
+        {
+            Name = "Spellbreaker";
+            Prerequisites.Add(barbarian.Level >= 12);
+            Prerequisites.Add(barbarian.Rage_Powers.Exists(x => x.Name == "Disruptive"));
+            Benefit = "Gain the Spellbreaker feat while raging";
+            return this;
+        }
+
+        public Rage_Power Spirit_Steed(Barbarian barbarian)
+        {
+            Name = "Spirit Steed";
+            Prerequisites.Add(barbarian.Level >= 6);
+            Prerequisites.Add(barbarian.Rage_Powers.Exists(x => x.Name == "Ferocious Mount"));
+            Benefit = "Your mount gains DR/magic and its natural weapons count as magical";
+            return this;
+        }
+
+        public Rage_Power Lesser_Spirit_Totem(Barbarian barbarian)
+        {
+            Name = "Spirit Totem, Lesser";
+            Prerequisites.Add(!barbarian.Rage_Powers.Exists(x => x.Name.Contains("Totem")));
+            Benefit = "Gain spirit allies that can attack adjacent enemies";
+            return this;
+        }
+
+        public Rage_Power Spirit_Totem(Barbarian barbarian)
+        {
+            Name = "Spirit Totem";
+            Prerequisites.Add(barbarian.Level >= 6);
+            Prerequisites.Add(barbarian.Rage_Powers.Exists(x => x.Name == "Spirit Totem, Lesser"));
+            Benefit = "Attacks against you may miss when you are raging";
+            return this;
+        }
+
+        public Rage_Power Greater_Spirit_Totem(Barbarian barbarian)
+        {
+            Name = "Spirit Totem, Greater";
+            Prerequisites.Add(barbarian.Level >= 10);
+            Prerequisites.Add(barbarian.Rage_Powers.Exists(x => x.Name == "Spirit Totem"));
+            Benefit = "Enemies near you take negative energy damage";
+            return this;
+        }
+
+        public Rage_Power Sprint(Barbarian barbarian)
+        {
+            Name = "Sprint";
+            Prerequisites.Add(barbarian.Level >= 4);
+            Prerequisites.Add(barbarian.Rage_Powers.Exists(x => x.Name == "Swift Foot"));
+            Benefit = "Move at x3 or x6 speed once per rage";
+            return this;
+        }
+
+        public Rage_Power Staggering_Drunk()
+        {
+            Name = "Staggering Drunk";
+            Benefit = "Gain dodge AC against attacks of opportunity if drinking";
+            return this;
+        }
+
+        public Rage_Power Strength_Surge()
+        {
+            Name = "Strength Surge";
+            Benefit = "Gain a Strength bonus on Combat Maneuver Checks";
+            return this;
+        }
+
+        public Rage_Power Sunder_Enchantment(Barbarian barbarian)
+        {
+            Name = "Sunder Enchantment";
+            Prerequisites.Add(barbarian.Level >= 8);
+            Prerequisites.Add(barbarian.Rage_Powers.Exists(x => x.Name == "Spell Sunder"));
+            Benefit = "Suppress sundered magical item’s powers";
+            return this;
+        }
+
+        public Rage_Power Superstition()
+        {
+            Name = "Superstition";
+            Benefit = "Gain a bonus on saving throws";
+            return this;
+        }
+
+        public Rage_Power Surprise_Accuracy()
+        {
+            Name = "Surprise Accuracy";
+            Benefit = "Gain a morale bonus on one attack roll";
+            return this;
+        }
+
+        public Rage_Power Swift_Foot()
+        {
+            Name = "Swift Foot";
+            Benefit = "Move faster when raging";
+            return this;
+        }
+
+        public Rage_Power Terrifying_Howl(Barbarian barbarian)
+        {
+            Name = "Terrifying Howl";
+            Prerequisites.Add(barbarian.Level >= 8);
+            Prerequisites.Add(barbarian.Rage_Powers.Exists(x => x.Name == "Intimidating Glare"));
+            Benefit = "Cause shaken enemies to become panicked";
+            return this;
+        }
+
+        public Rage_Power Ultimate_Clarity(Barbarian barbarian)
+        {
+            Name = "Ultimate Clarity";
+            Prerequisites.Add(barbarian.Level >= 6);
+            Prerequisites.Add(barbarian.Rage_Powers.Exists(x => x.Name == "Perfect Clarity"));
+            Benefit = "1/rage, for 1 round, see through normal and magical darkness (including from magical effects such as blur and displacement), invisibility, and illusions; and discern exact locations of creatures with concealment.";
+            return this;
+        }
+
+        public Rage_Power Unexpected_Strike(Barbarian barbarian)
+        {
+            Name = "Unexpected Strike";
+            Prerequisites.Add(barbarian.Level >= 8);
+            Benefit = "Enemies provoke attacks of opportunity even when they normally wouldn’t";
+            return this;
+        }
+
+        public Rage_Power Water_Sense()
+        {
+            Name = "Water Sense";
+            Benefit = "Your senses are no longer fooled by the rippling surface and confounding reflections seen in water that is being used as cover by your foes.";
+            return this;
+        }
+
+        public Rage_Power Witch_Hunter(Barbarian barbarian)
+        {
+            Name = "Witch Hunter";
+            Prerequisites.Add(barbarian.Rage_Powers.Exists(x => x.Name == "Superstition"));
+            Benefit = "Do extra damage against spellcasters";
+            return this;
+        }
+
+        public Rage_Power World_Serpent_Totem(Barbarian barbarian)
+        {
+            Name = "World Serpent Totem";
+            Prerequisites.Add(!barbarian.Rage_Powers.Exists(x => x.Name.Contains("Totem")));
+            Benefit = "Gain bonuses against outsiders and abberations";
+            return this;
+        }
+
+        public Rage_Power World_Serpent_Spirit(Barbarian barbarian)
+        {
+            Name = "World Serpent Spirit";
+            Prerequisites.Add(barbarian.Level >= 6);
+            Prerequisites.Add(barbarian.Rage_Powers.Exists(x => x.Name == "World Serpent Totem"));
+            Benefit = "Your weapon counts as chaotic, evil, good, lawful while raging";
+            return this;
+        }
+
+        public Rage_Power World_Serpent_Totem_Unity(Barbarian barbarian)
+        {
+            Name = "World Serpent Totem Unity";
+            Prerequisites.Add(barbarian.Level >= 6);
+            Prerequisites.Add(barbarian.Rage_Powers.Exists(x => x.Name == "World Serpent Spirit"));
+            Benefit = "Double fast movement bonus and cannot be knocked prone";
+            return this;
+        }
+
+        //Bloodrage Powers
     }
 }
