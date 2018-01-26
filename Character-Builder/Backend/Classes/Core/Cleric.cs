@@ -7,7 +7,7 @@ namespace Backend.Classes.Core
 {
     public class Cleric : Class
     {
-        //public List<Domain> Domains { get; } = new List<Domain>(); //domains to be set up
+        //public List<Domain> Domains { get; } = new List<Domain>(); //domains to be set up (after spells?)
 
         public Cleric()
         {
