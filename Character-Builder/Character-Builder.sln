@@ -1,11 +1,13 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 15
-VisualStudioVersion = 15.0.27004.2002
+VisualStudioVersion = 15.0.27130.2026
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Character-Builder", "Character-Builder\Character-Builder.csproj", "{164BB64C-B73C-44F2-9CA1-99E03F87C1D7}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Character-Builder", "Character-Builder\Character-Builder.csproj", "{164BB64C-B73C-44F2-9CA1-99E03F87C1D7}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Backend", "Backend\Backend.csproj", "{EB59279A-0FB9-4334-9CF2-FAC2E4EE21C1}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Backend", "Backend\Backend.csproj", "{EB59279A-0FB9-4334-9CF2-FAC2E4EE21C1}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Execution", "Execution\Execution.csproj", "{E9BCAC0D-CCA6-4198-A21A-85724717B6A1}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -21,6 +23,10 @@ Global
 		{EB59279A-0FB9-4334-9CF2-FAC2E4EE21C1}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{EB59279A-0FB9-4334-9CF2-FAC2E4EE21C1}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{EB59279A-0FB9-4334-9CF2-FAC2E4EE21C1}.Release|Any CPU.Build.0 = Release|Any CPU
+		{E9BCAC0D-CCA6-4198-A21A-85724717B6A1}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{E9BCAC0D-CCA6-4198-A21A-85724717B6A1}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{E9BCAC0D-CCA6-4198-A21A-85724717B6A1}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{E9BCAC0D-CCA6-4198-A21A-85724717B6A1}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

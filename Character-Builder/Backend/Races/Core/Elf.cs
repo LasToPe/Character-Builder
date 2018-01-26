@@ -13,7 +13,7 @@ namespace Backend.Races.Core
             Constitution_Bonus = -2;
             Intelligence_Bonus = 2;
 
-            Size = Size.Medium();
+            Size = new Size().Medium();
 
             Type = "Humanoid (elf)";
 

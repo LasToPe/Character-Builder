@@ -7,7 +7,7 @@ namespace Backend.Classes.Core
 {
     public class Barbarian : Class
     {
-        public List<Rage_Power> Rage_Powers { get; }
+        public List<Rage_Power> Rage_Powers { get; } = new List<Rage_Power>();
         public Barbarian()
         {
         }

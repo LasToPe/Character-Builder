@@ -64,7 +64,7 @@ namespace Backend
         public int Temporary_Charisma_Modifier { get => (Temporary_Charisma_Score - 10) / 2; }*/
 
         public Race Race { get; set; }
-        public List<Class> Character_Classes { get; }
+        public List<Class> Character_Classes { get; } = new List<Class>();
         public Class Favored_Class { get; set; }
 
         public int Hit_Points { get; set; } //set needs change to accomodate automatic calculation

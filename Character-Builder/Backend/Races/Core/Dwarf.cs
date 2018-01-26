@@ -13,7 +13,7 @@ namespace Backend.Races.Core
             Wisdom_Bonus = 2;
             Charisma_Bonus = -2;
 
-            Size = Size.Medium();
+            Size = new Size().Medium();
 
             Type = "Humanoid (dwarf)";
 

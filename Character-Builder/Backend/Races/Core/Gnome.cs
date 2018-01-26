@@ -13,7 +13,7 @@ namespace Backend.Races.Core
             Constitution_Bonus = 2;
             Charisma_Bonus = 2;
 
-            Size = Size.Small();
+            Size = new Size().Small();
 
             Type = "Humanoid (gnome)";
 

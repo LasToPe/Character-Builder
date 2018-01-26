@@ -19,8 +19,8 @@ namespace Backend.Races
 
         public int Base_Speed { get; set; }
 
-        public List<string> Langauges { get; set; }
+        public List<string> Langauges { get; } = new List<string>();
 
-        public List<Racial_Trait> Racial_Traits { get; set; }
+        public List<Racial_Trait> Racial_Traits { get; } = new List<Racial_Trait>();
     }
 }

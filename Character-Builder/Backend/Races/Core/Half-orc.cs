@@ -33,7 +33,7 @@ namespace Backend.Races.Core
                     break;
             }
 
-            Size = Size.Medium();
+            Size = new Size().Medium();
 
             Type = "Humanoid (human, orc)";
 
