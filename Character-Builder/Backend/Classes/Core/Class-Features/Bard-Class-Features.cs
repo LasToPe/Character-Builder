@@ -60,8 +60,9 @@ namespace Backend.Classes.Core.Class_Features
             return this;
         }
 
-        public Class_Feature Lore_Master()
+        public Class_Feature Lore_Master(Bard bard)
         {
+            int bonus = (bard.Level - 5) / 6 + 1;
             Name = "Lore Master";
             Description = "At 5th level, the bard becomes a master of lore and can take 10 on any Knowledge skill check that he has ranks in. A bard can choose not to take 10 and can instead roll normally. In addition, once per day, the bard can take 20 on any Knowledge skill check as a standard action. He can use this ability one additional time per day for every six levels he possesses beyond 5th, to a maximum of three times per day at 17th level.";
             return this;

@@ -10,15 +10,19 @@ namespace Execution
         static void Main(string[] args)
         {
             Character character = new Character();
-            var list = new ALT_Barbarian_Rage_Powers().Rage_Powers(new Barbarian());
 
-            foreach (var item in list)
+            character.Character_Classes.RemoveAt(0);
+            character.Character_Classes.Add(new Druid(character));
+
+            character.Character_Classes[0].Level = 14;
+            character.Character_Classes[0].Update();
+
+            Console.WriteLine("BAB = " + character.BAB);
+            foreach(var item in character.Character_Classes[0].Class_Features)
             {
                 Console.WriteLine(item.Name);
             }
-            foreach (var item in character.Character_Classes)
-                Console.WriteLine(item);
-            Console.WriteLine(character.Favored_Class);
+
             Console.ReadLine();
         }
     }

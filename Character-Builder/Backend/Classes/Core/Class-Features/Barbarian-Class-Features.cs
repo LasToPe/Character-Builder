@@ -49,8 +49,9 @@ namespace Backend.Classes.Core.Class_Features
             return this;
         }
 
-        public Class_Feature Trap_Sense(int bonus)
+        public Class_Feature Trap_Sense(Barbarian barbarian)
         {
+            int bonus = barbarian.Level / 3;
             Name = "Trap Sense +" + bonus;
             Description = "At 3rd level, a barbarian gains a +1 bonus on Reflex saves made to avoid traps and a +1 dodge bonus to armor class against attacks made by traps. These bonuses increase by +1 every three barbarian levels thereafter (6th, 9th, 12th, 15th, and 18th level). Trap sense bonuses gained from multiple classes stack.";
             return this;
@@ -66,9 +67,10 @@ namespace Backend.Classes.Core.Class_Features
             return this;
         }
 
-        public Class_Feature Damage_Reduction(Character character, int bonus)
+        public Class_Feature Damage_Reduction(Character character, Barbarian barbarian)
         {
-            Name = "Damage Reduction " + bonus;
+            int bonus = (barbarian.Level - 7) / 3 + 1;
+            Name = "Damage Reduction " + bonus + "/-";
             Description = "At 7th level, a barbarian gains damage reduction. Subtract 1 from the damage the barbarian takes each time she is dealt damage from a weapon or a natural attack. At 10th level, and every three barbarian levels thereafter (13th, 16th, and 19th level), this damage reduction rises by 1 point. Damage reduction can reduce damage to 0 but not below 0.";
             //set up functionality (DR on character)
             return this;

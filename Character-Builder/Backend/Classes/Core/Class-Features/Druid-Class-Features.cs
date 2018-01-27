@@ -60,7 +60,7 @@ namespace Backend.Classes.Core.Class_Features
             return this;
         }
 
-        public Class_Feature Wild_Shape()
+        public Class_Feature Wild_Shape() //uses per day
         {
             Name = "Wild Shape";
             Description = "At 4th level, a druid gains the ability to turn herself into any small or Medium animal and back again once per day. Her options for new forms include all creatures with the animal type. This ability functions like the beast shape I spell, except as noted here. The effect lasts for 1 hour per druid level, or until she changes back. Changing form (to animal or back) is a standard action and doesn’t provoke an attack of opportunity. The form chosen must be that of an animal the druid is familiar with."

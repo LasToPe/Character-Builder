@@ -19,7 +19,7 @@ namespace Backend
             Wisdom_Score = 10;
             Charisma_Score = 10;
             Race = new Human("Strength");
-            Character_Classes.Add(new Barbarian());
+            Character_Classes.Add(new Barbarian(this));
             Favored_Class = Character_Classes[0];
             Hit_Points = 0;
             Initiative = 0;
@@ -82,7 +82,17 @@ namespace Backend
         public int Will { get; set; }
 
         //Base Attack Bonus and Combat Maneuver Bonuses
-        public int BAB { get; set; }
+        public int BAB {
+            get
+            {
+                int temp = 0;
+                foreach(var item in Character_Classes)
+                {
+                    temp += item.BAB;
+                }
+                return temp;
+            }
+        }
         public int CMB { get; set; }
         public int CMD => 10 + BAB + Strength_Modifier + Dexterity_Modifier + Race.Size.CMD_Mod;
 
