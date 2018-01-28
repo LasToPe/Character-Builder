@@ -13,7 +13,7 @@ namespace Backend.Classes.Core
         {
         }
 
-        public override void Level_1()
+        public override void Level_01()
         {
             BAB = Level * 3 / 4;
             Class_Features.Add(new Cleric_Class_Features().Aura());
@@ -22,42 +22,42 @@ namespace Backend.Classes.Core
             Class_Features.Add(new Cleric_Class_Features().Spontaneous_Casting());
         }
         
-        public override void Level_2()
+        public override void Level_02()
         {
             BAB = Level * 3 / 4;
         }
 
-        public override void Level_3()
+        public override void Level_03()
         {
             BAB = Level * 3 / 4;
         }
 
-        public override void Level_4()
+        public override void Level_04()
         {
             BAB = Level * 3 / 4;
         }
 
-        public override void Level_5()
+        public override void Level_05()
         {
             BAB = Level * 3 / 4;
         }
 
-        public override void Level_6()
+        public override void Level_06()
         {
             BAB = Level * 3 / 4;
         }
 
-        public override void Level_7()
+        public override void Level_07()
         {
             BAB = Level * 3 / 4;
         }
 
-        public override void Level_8()
+        public override void Level_08()
         {
             BAB = Level * 3 / 4;
         }
 
-        public override void Level_9()
+        public override void Level_09()
         {
             BAB = Level * 3 / 4;
         }

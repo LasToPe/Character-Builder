@@ -13,57 +13,57 @@ namespace Backend.Classes.Core
         {
         }
 
-        public override void Level_1()
+        public override void Level_01()
         {
             BAB = Level;
             Class_Features.Add(new Barbarian_Class_Features().Fast_Movement(character));
             Class_Features.Add(new Barbarian_Class_Features().Rage());
         }
 
-        public override void Level_2()
+        public override void Level_02()
         {
             BAB = Level;
             Class_Features.Add(new Barbarian_Class_Features().Rage_Powers(this));
             Class_Features.Add(new Barbarian_Class_Features().Uncanny_Dodge());
         }
 
-        public override void Level_3()
+        public override void Level_03()
         {
             BAB = Level;
             Class_Features.Add(new Barbarian_Class_Features().Trap_Sense(this));
         }
 
-        public override void Level_4()
+        public override void Level_04()
         {
             BAB = Level;
             Class_Features.Add(new Barbarian_Class_Features().Rage_Powers(this));
         }
 
-        public override void Level_5()
+        public override void Level_05()
         {
             BAB = Level;
             Class_Features.Add(new Barbarian_Class_Features().Improved_Uncanny_Dodge());
         }
 
-        public override void Level_6()
+        public override void Level_06()
         {
             BAB = Level;
             Class_Features.Add(new Barbarian_Class_Features().Rage_Powers(this));
         }
 
-        public override void Level_7()
+        public override void Level_07()
         {
             BAB = Level;
             Class_Features.Add(new Barbarian_Class_Features().Damage_Reduction(character, this));
         }
 
-        public override void Level_8()
+        public override void Level_08()
         {
             BAB = Level;
             Class_Features.Add(new Barbarian_Class_Features().Rage_Powers(this));
         }
 
-        public override void Level_9()
+        public override void Level_09()
         {
             BAB = Level;
             //no imidiate impact

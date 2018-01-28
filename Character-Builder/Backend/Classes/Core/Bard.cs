@@ -13,53 +13,53 @@ namespace Backend.Classes.Core
         {
         }
 
-        public override void Level_1()
+        public override void Level_01()
         {
             BAB = Level * 3 / 4;
             Class_Features.Add(new Bard_Class_Features().Bardic_Knowledge(this));
             Class_Features.Add(new Bard_Class_Features().Bardic_Performance(this));
         }
 
-        public override void Level_2()
+        public override void Level_02()
         {
             BAB = Level * 3 / 4;
             Class_Features.Add(new Bard_Class_Features().Versatile_Performance());
             Class_Features.Add(new Bard_Class_Features().Well_Versed());
         }
 
-        public override void Level_3()
+        public override void Level_03()
         {
             BAB = Level * 3 / 4;
         }
 
-        public override void Level_4()
+        public override void Level_04()
         {
             BAB = Level * 3 / 4;
             Class_Features.Add(new Bard_Class_Features().Lore_Master(this));
         }
 
-        public override void Level_5()
+        public override void Level_05()
         {
             BAB = Level * 3 / 4;
             Class_Features.Add(new Bard_Class_Features().Versatile_Performance());
         }
 
-        public override void Level_6()
+        public override void Level_06()
         {
             BAB = Level * 3 / 4;
         }
 
-        public override void Level_7()
+        public override void Level_07()
         {
             BAB = Level * 3 / 4;
         }
 
-        public override void Level_8()
+        public override void Level_08()
         {
             BAB = Level * 3 / 4;
         }
 
-        public override void Level_9()
+        public override void Level_09()
         {
             BAB = Level * 3 / 4;
         }
