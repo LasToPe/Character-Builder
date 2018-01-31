@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using System.Text;
 
-namespace Backend.Classes.Core.Class_Features
+namespace Backend.Classes.Core.Specials
 {
     public class Bard_Specials : Special
     {

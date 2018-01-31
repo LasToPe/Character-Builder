@@ -2,79 +2,87 @@
 using System.Collections.Generic;
 using System.Text;
 
-namespace Backend.Classes.Core.Class_Features
+namespace Backend.Classes.Core.Specials
 {
-    public class ALT_Rage_Power
+    public class Rage_Power
     {
         public string Name { get; set; }
         public List<bool> Prerequisites { get; }
         public string Benefit { get; set; }
 
-        public ALT_Rage_Power() { }
-
-        public ALT_Rage_Power(string name, List<bool> prerequisites, string benefit)
+        public Rage_Power()
         {
-            Name = name;
-            Prerequisites = prerequisites;
-            Benefit = benefit;
-        }
-
-        public ALT_Rage_Power(string name, string benefit)
-        {
-            Name = name;
-            Benefit = benefit;
         }
     }
 
-    public class ALT_Barbarian_Rage_Powers : ALT_Rage_Power
+    public class Barbarian_Rage_Powers : Rage_Power
     {
-
-        public List<ALT_Rage_Power> Rage_Powers(Barbarian barbarian)
+        public Rage_Power Animal_Fury()
         {
-            List<ALT_Rage_Power> list = new List<ALT_Rage_Power>
-            {
-                new ALT_Rage_Power(
-                    name: "Animal Fury",
-                    benefit: "Gain a bite attack"),
-
-                new ALT_Rage_Power(
-                    name: "Animal Fury, Greater",
-                    prerequisites: new List<bool> { barbarian.Rage_Powers.Exists(x => x.Name == "Animal Fury") },
-                    benefit: "As animal fury, but your bite attack deals damage as if you were one size larger."),
-
-                new ALT_Rage_Power(
-                    name: "Armor Ripper",
-                    benefit: "Gain a bonus to Sunder checks with your natural attacks while raging"),
-
-                new ALT_Rage_Power(
-                    name: "Atavism Totem, Lesser",
-                    prerequisites: new List<bool> { !barbarian.Rage_Powers.Exists(x => x.Name.Contains("Totem")) },
-                    benefit: "You gain a bite attack; or if you already have a bite attack, it deals damage as if you were one size larger."),
-
-                new ALT_Rage_Power(
-                    name: "Atavism Totem",
-                    prerequisites: new List<bool> { barbarian.Level >= 6, barbarian.Rage_Powers.Exists(x => x.Name == "Atavism Totem, Lesser") },
-                    benefit: "You gain the ferocity ability."),
-
-                new ALT_Rage_Power(
-                    name: "Atavism Totem, Greater",
-                    prerequisites: new List<bool> { barbarian.Level >= 10, barbarian.Rage_Powers.Exists(x => x.Name == "Atavism Totem") },
-                    benefit: "You gain the trample ability."),
-
-                new ALT_Rage_Power(
-                    name: "Auspicious Mark",
-                    benefit: "Gain a bonus on a roll once per rage"),
-
-                new ALT_Rage_Power(
-                    name: "Battle Roar",
-                    prerequisites: new List<bool> { barbarian.Level >= 6, barbarian.Rage_Powers.Exists(x => x.Name == "Intimidating Glare") },
-                    benefit: "You deal an additional 1d6 points of sonic damage to an opponent you successfully demoralized using intimidating glare."),
-            };
-
-
-            return list;
+            Name = "Animal Fury";
+            Benefit = "Gain a bite attack";
+            //functionality
+            return this;
         }
-        /*
+
+        public Rage_Power Greater_Animal_Fury(Barbarian barbarian)
+        {
+            Name = "Animal Fury, Greater";
+            Prerequisites.Add(barbarian.Rage_Powers.Exists(x => x.Name == "Animal Fury"));
+            Benefit = "As animal fury, but your bite attack deals damage as if you were one size larger.";
+            return this;
+        }
+
+        public Rage_Power Armor_Ripper()
+        {
+            Name = "Armor Ripper";
+            Benefit = "Gain a bonus to Sunder checks with your natural attacks while raging";
+            return this;
+        }
+
+        public Rage_Power Lesser_Atavism_Totem(Barbarian barbarian)
+        {
+            Name = "Atavism Totem, Lesser";
+            Prerequisites.Add(!barbarian.Rage_Powers.Exists(x => x.Name.Contains("Totem")));
+            Benefit = "You gain a bite attack; or if you already have a bite attack, it deals damage as if you were one size larger.";
+            //functionality
+            return this;
+        }
+
+        public Rage_Power Atavism_Totem(Barbarian barbarian)
+        {
+            Name = "Atavism Totem";
+            Prerequisites.Add(barbarian.Level >= 6);
+            Prerequisites.Add(barbarian.Rage_Powers.Exists(x => x.Name == "Atavism Totem, Lesser"));
+            Benefit = "You gain the ferocity ability.";
+            return this;
+        }
+
+        public Rage_Power Greater_Atavism_Totem(Barbarian barbarian)
+        {
+            Name = "Atavism Totem, Greater";
+            Prerequisites.Add(barbarian.Level >= 10);
+            Prerequisites.Add(barbarian.Rage_Powers.Exists(x => x.Name == "Atavism Totem"));
+            Benefit = "You gain the trample ability.";
+            return this;
+        }
+
+        public Rage_Power Auspicious_Mark()
+        {
+            Name = "Auspicious Mark";
+            Benefit = "Gain a bonus on a roll once per rage";
+            return this;
+        }
+
+        public Rage_Power Battle_Roar(Barbarian barbarian)
+        {
+            Name = "Battle Roar";
+            Prerequisites.Add(barbarian.Level >= 6);
+            Prerequisites.Add(barbarian.Rage_Powers.Exists(x => x.Name == "Intimidating Glare"));
+            Benefit = "You deal an additional 1d6 points of sonic damage to an opponent you successfully demoralized using intimidating glare.";
+            return this;
+        }
+
         public Rage_Power Lesser_Beast_Totem(Barbarian barbarian)
         {
             Name = "Beast Totem, Lesser";
@@ -1269,6 +1277,6 @@ namespace Backend.Classes.Core.Class_Features
             return this;
         }
 
-        //Bloodrage Powers*/
+        //Bloodrage Powers
     }
 }

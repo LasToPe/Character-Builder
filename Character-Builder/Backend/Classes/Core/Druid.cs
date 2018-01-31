@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Text;
-using Backend.Classes.Core.Class_Features;
+using Backend.Classes.Core.Specials;
 
 namespace Backend.Classes.Core
 {
@@ -14,28 +14,28 @@ namespace Backend.Classes.Core
         public override void Level_01()
         {
             BAB = Level * 3 / 4;
-            Class_Features.Add(new Druid_Specials().Nature_Bond());
-            Class_Features.Add(new Druid_Specials().Nature_Sense());
-            Class_Features.Add(new Druid_Specials().Wild_Empathy());
+            Specials.Add(new Druid_Specials().Nature_Bond());
+            Specials.Add(new Druid_Specials().Nature_Sense());
+            Specials.Add(new Druid_Specials().Wild_Empathy());
         }
 
         public override void Level_02()
         {
             //BAB = Level * 3 / 4;
-            Class_Features.Add(new Druid_Specials().Woodland_Stride());
+            Specials.Add(new Druid_Specials().Woodland_Stride());
         }
 
         public override void Level_03()
         {
             //BAB = Level * 3 / 4;
-            Class_Features.Add(new Druid_Specials().Trackless_Step());
+            Specials.Add(new Druid_Specials().Trackless_Step());
         }
 
         public override void Level_04()
         {
             //BAB = Level * 3 / 4;
-            Class_Features.Add(new Druid_Specials().Resist_Natures_Lure());
-            Class_Features.Add(new Druid_Specials().Wild_Shape());
+            Specials.Add(new Druid_Specials().Resist_Natures_Lure());
+            Specials.Add(new Druid_Specials().Wild_Shape());
         }
 
         public override void Level_05()
@@ -61,7 +61,7 @@ namespace Backend.Classes.Core
         public override void Level_09()
         {
             //BAB = Level * 3 / 4;
-            Class_Features.Add(new Druid_Specials().Venom_Immunity());
+            Specials.Add(new Druid_Specials().Venom_Immunity());
         }
 
         public override void Level_10()
@@ -82,7 +82,7 @@ namespace Backend.Classes.Core
         public override void Level_13()
         {
             //BAB = Level * 3 / 4;
-            Class_Features.Add(new Druid_Specials().A_Thousand_Faces());
+            Specials.Add(new Druid_Specials().A_Thousand_Faces());
         }
 
         public override void Level_14()
@@ -93,7 +93,7 @@ namespace Backend.Classes.Core
         public override void Level_15()
         {
             //BAB = Level * 3 / 4;
-            Class_Features.Add(new Druid_Specials().Timeless_Body());
+            Specials.Add(new Druid_Specials().Timeless_Body());
         }
 
         public override void Level_16()

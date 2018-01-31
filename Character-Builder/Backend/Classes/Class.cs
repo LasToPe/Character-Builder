@@ -9,7 +9,7 @@ namespace Backend.Classes
         protected Character character;
         public int Level { get; set; }
         public int BAB { get; set; }
-        public List<Special> Class_Features { get; } = new List<Special>();
+        public List<Special> Specials { get; } = new List<Special>();
         protected static List<Action> levelList;
 
         public Class(Character character)
@@ -29,7 +29,7 @@ namespace Backend.Classes
 
         public void Update()
         {
-            Class_Features.Clear();
+            Specials.Clear();
             for (int i = 0; i < Level; i++)
             {
                 levelList[i]();

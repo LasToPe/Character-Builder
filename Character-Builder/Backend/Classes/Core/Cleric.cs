@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Text;
-using Backend.Classes.Core.Class_Features;
+using Backend.Classes.Core.Specials;
 
 namespace Backend.Classes.Core
 {
@@ -16,10 +16,10 @@ namespace Backend.Classes.Core
         public override void Level_01()
         {
             BAB = Level * 3 / 4;
-            Class_Features.Add(new Cleric_Specials().Aura());
-            Class_Features.Add(new Cleric_Specials().Channel_Energy(this));
-            Class_Features.Add(new Cleric_Specials().Domains());
-            Class_Features.Add(new Cleric_Specials().Spontaneous_Casting());
+            Specials.Add(new Cleric_Specials().Aura());
+            Specials.Add(new Cleric_Specials().Channel_Energy(this));
+            Specials.Add(new Cleric_Specials().Domains());
+            Specials.Add(new Cleric_Specials().Spontaneous_Casting());
         }
         
         public override void Level_02()
