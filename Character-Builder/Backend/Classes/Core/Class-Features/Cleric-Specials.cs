@@ -4,16 +4,16 @@ using System.Text;
 
 namespace Backend.Classes.Core.Class_Features
 {
-    public class Cleric_Class_Features : Class_Feature
+    public class Cleric_Specials : Special
     {
-        public Class_Feature Aura()
+        public Special Aura()
         {
             Name = "Aura";
             Description = "A cleric of a chaotic, evil, good, or lawful deity has a particularly powerful aura corresponding to the deity’s alignment.";
             return this;
         }
 
-        public Class_Feature Channel_Energy(Cleric cleric)
+        public Special Channel_Energy(Cleric cleric)
         {
             int value = (cleric.Level - 1) / 2 + 1;
             Name = "Channel Energy " + value + "d6";
@@ -27,7 +27,7 @@ namespace Backend.Classes.Core.Class_Features
             return this;
         }
 
-        public Class_Feature Domains(/*choices*/) //Domains need to set up
+        public Special Domains(/*choices*/) //Domains need to set up
         {
             Name = "Domains";
             Description = "A cleric’s deity influences her alignment, what magic she can perform, her values, and how others see her. A cleric chooses two domains from among those belonging to her deity. A cleric can select an alignment domain (Chaos, Evil, Good, or Law) only if her alignment matches that domain. If a cleric is not devoted to a particular deity, she still selects two domains to represent her spiritual inclinations and abilities (subject to GM approval). The restriction on alignment domains still applies."
@@ -39,7 +39,7 @@ namespace Backend.Classes.Core.Class_Features
             return this;
         }
 
-        public Class_Feature Spontaneous_Casting()
+        public Special Spontaneous_Casting()
         {
             Name = "Spontaneous Casting";
             Description = "A good cleric (or a neutral cleric of a good deity) can channel stored spell energy into healing spells that she did not prepare ahead of time. The cleric can “lose” any prepared spell that is not an orison or domain spell in order to cast any cure spell of the same spell level or lower (a cure spell is any spell with “cure” in its name)."
@@ -50,7 +50,7 @@ namespace Backend.Classes.Core.Class_Features
             return this;
         }
 
-        public Class_Feature Bonus_Languages() //functionality?
+        public Special Bonus_Languages() //functionality?
         {
             Name = "Bonus Languages";
             Description = "A cleric’s bonus language options include Celestial, Abyssal, and Infernal (the languages of good, chaotic evil, and lawful evil outsiders, respectively). These choices are in addition to the bonus languages available to the character because of her race.";

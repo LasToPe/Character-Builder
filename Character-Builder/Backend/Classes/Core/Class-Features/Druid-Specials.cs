@@ -4,9 +4,9 @@ using System.Text;
 
 namespace Backend.Classes.Core.Class_Features
 {
-    public class Druid_Class_Features : Class_Feature
+    public class Druid_Specials : Special
     {
-        public Class_Feature Nature_Bond(/*choice*/) //available cleric domains, future -> animal and terrain domains
+        public Special Nature_Bond(/*choice*/) //available cleric domains, future -> animal and terrain domains
         {
             Name = "Nature Bond";
             Description = "At 1st level, a druid forms a bond with nature. This bond can take one of two forms. The first is a close tie to the natural world, granting the druid one of the following cleric domains: Air, Animal, Earth, Fire, Plant, Water, or Weather. Druids also have access to a set of Animal and Terrain Domains. When determining the powers and bonus spells granted by this domain, the druid’s effective cleric level is equal to her druid level. A druid that selects this option also receives additional domain spell slots, just like a cleric. She must prepare the spell from her domain in this slot and this spell cannot be used to cast a spell spontaneously."
@@ -18,7 +18,7 @@ namespace Backend.Classes.Core.Class_Features
             return this;
         }
 
-        public Class_Feature Nature_Sense()
+        public Special Nature_Sense()
         {
             Name = "Nature Sense";
             Description = "A druid gains a +2 bonus on Knowledge (nature) and Survival checks.";
@@ -26,7 +26,7 @@ namespace Backend.Classes.Core.Class_Features
             return this;
         }
 
-        public Class_Feature Wild_Empathy()
+        public Special Wild_Empathy()
         {
             Name = "Wild Empathy";
             Description = "A druid can improve the attitude of an animal. This ability functions just like a Diplomacy check made to improve the attitude of a person. The druid rolls 1d20 and adds her druid level and her Charisma modifier to determine the wild empathy check result."
@@ -39,28 +39,28 @@ namespace Backend.Classes.Core.Class_Features
             return this;
         }
 
-        public Class_Feature Woodland_Stride()
+        public Special Woodland_Stride()
         {
             Name = "Woodland Stride";
             Description = "Starting at 2nd level, a druid may move through any sort of undergrowth (such as natural thorns, briars, overgrown areas, and similar terrain) at her normal speed and without taking damage or suffering any other impairment. Thorns, briars, and overgrown areas that have been magically manipulated to impede motion, however, still affect her.";
             return this;
         }
 
-        public Class_Feature Trackless_Step()
+        public Special Trackless_Step()
         {
             Name = "Trackless Step";
             Description = "Starting at 3rd level, a druid leaves no trail in natural surroundings and cannot be tracked. She may choose to leave a trail if so desired.";
             return this;
         }
 
-        public Class_Feature Resist_Natures_Lure()
+        public Special Resist_Natures_Lure()
         {
             Name = "Resist Nature's Lure";
             Description = "Starting at 4th level, a druid gains a +4 bonus on saving throws against the spell-like and supernatural abilities of fey. This bonus also applies to spells and effects that target plants, such as blight, entangle, spike growth, and warp wood.";
             return this;
         }
 
-        public Class_Feature Wild_Shape() //uses per day
+        public Special Wild_Shape() //uses per day
         {
             Name = "Wild Shape";
             Description = "At 4th level, a druid gains the ability to turn herself into any small or Medium animal and back again once per day. Her options for new forms include all creatures with the animal type. This ability functions like the beast shape I spell, except as noted here. The effect lasts for 1 hour per druid level, or until she changes back. Changing form (to animal or back) is a standard action and doesn’t provoke an attack of opportunity. The form chosen must be that of an animal the druid is familiar with."
@@ -79,21 +79,21 @@ namespace Backend.Classes.Core.Class_Features
             return this;
         }
 
-        public Class_Feature Venom_Immunity()
+        public Special Venom_Immunity()
         {
             Name = "Venom Immunity";
             Description = "At 9th level, a druid gains immunity to all poisons.";
             return this;
         }
 
-        public Class_Feature A_Thousand_Faces()
+        public Special A_Thousand_Faces()
         {
             Name = "A Thousand Faces";
             Description = "At 13th level, a druid gains the ability to change her appearance at will, as if using the alter self spell, but only while in her normal form.";
             return this;
         }
 
-        public Class_Feature Timeless_Body()
+        public Special Timeless_Body()
         {
             Name = "Timeless Body";
             Description = "After attaining 15th level, a druid no longer takes ability score penalties for aging and cannot be magically aged. Any penalties she may have already incurred, however, remain in place. Bonuses still accrue, and the druid still dies of old age when her time is up.";

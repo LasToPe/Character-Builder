@@ -4,9 +4,9 @@ using System.Text;
 
 namespace Backend.Classes.Core.Class_Features
 {
-    public class Bard_Class_Features : Class_Feature
+    public class Bard_Specials : Special
     {
-        public Class_Feature Bardic_Knowledge(Bard bard)
+        public Special Bardic_Knowledge(Bard bard)
         {
             Name = "Bardic Knowledge";
             Description = "A bard adds half his class level (minimum 1) to all Knowledge skill checks and may make all Knowledge skill checks untrained.";
@@ -14,7 +14,7 @@ namespace Backend.Classes.Core.Class_Features
             return this;
         }
 
-        public Class_Feature Bardic_Performance(Bard bard)
+        public Special Bardic_Performance(Bard bard)
         {
             Name = "Bardic Performance";
             Description = "A bard is trained to use the Perform skill to create magical effects on those around him, including himself if desired. He can use this ability for a number of rounds per day equal to 4 + his Charisma modifier. At each level after 1st a bard can use bardic performance for 2 additional rounds per day. Each round, the bard can produce any one of the types of bardic performance that he has mastered, as indicated by his level."
@@ -42,7 +42,7 @@ namespace Backend.Classes.Core.Class_Features
             return this;
         }
 
-        public Class_Feature Versatile_Performance() //takes Perform type, taken at 2nd, 6th, 10th, 14th and 18th level
+        public Special Versatile_Performance() //takes Perform type, taken at 2nd, 6th, 10th, 14th and 18th level
         {
             Name = "Versatile Performance";
             Description = "At 2nd level, a bard can choose one type of Perform skill. He can use his bonus in that skill in place of his bonus in associated skills. When substituting in this way, the bard uses his total Perform skill bonus, including class skill bonus, in place of its associated skill’s bonus, whether or not he has ranks in that skill or if it is a class skill. At 6th level, and every 4 levels thereafter, the bard can select an additional type of Perform to substitute."
@@ -53,14 +53,14 @@ namespace Backend.Classes.Core.Class_Features
 
         //Future -> Advanced Versitile Performance and Masterpieces
 
-        public Class_Feature Well_Versed()
+        public Special Well_Versed()
         {
             Name = "Well-Versed";
             Description = "At 2nd level, the bard becomes resistant to the bardic performance of others, and to sonic effects in general. The bard gains a +4 bonus on saving throws made against bardic performance, sonic, and language-dependent effects.";
             return this;
         }
 
-        public Class_Feature Lore_Master(Bard bard)
+        public Special Lore_Master(Bard bard)
         {
             int bonus = (bard.Level - 5) / 6 + 1;
             Name = "Lore Master";
@@ -68,7 +68,7 @@ namespace Backend.Classes.Core.Class_Features
             return this;
         }
 
-        public Class_Feature Jack_of_All_Trades()
+        public Special Jack_of_All_Trades()
         {
             Name = "Jack of All Trades";
             Description = "At 10th level, the bard can use any skill, even if the skill normally requires him to be trained. At 16th level, the bard considers all skills to be class skills. At 19th level, the bard can take 10 on any skill check, even if it is not normally allowed.";

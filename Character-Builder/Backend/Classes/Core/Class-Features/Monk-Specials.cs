@@ -4,9 +4,9 @@ using System.Text;
 
 namespace Backend.Classes.Core.Class_Features
 {
-    class Monk_Class_Features : Class_Feature
+    class Monk_Specials : Special
     {
-        public Class_Feature AC_Bonus(Monk monk)
+        public Special AC_Bonus(Monk monk)
         {
             Name = "AC Bonus";
             Description = "When unarmored and unencumbered, the monk adds his Wisdom bonus (if any) to his AC and his CMD. In addition, a monk gains a +1 bonus to AC and CMD at 4th level. This bonus increases by 1 for every four monk levels thereafter, up to a maximum of +5 at 20th level."
@@ -16,7 +16,7 @@ namespace Backend.Classes.Core.Class_Features
             return this;
         }
 
-        public Class_Feature Flurry_of_Blows(Monk monk)
+        public Special Flurry_of_Blows(Monk monk)
         {
             Name = "Flurry of Blows";
             Description = "Starting at 1st level, a monk can make a flurry of blows as a full-attack action."
@@ -34,7 +34,7 @@ namespace Backend.Classes.Core.Class_Features
             return this;
         }
 
-        public Class_Feature Unarmed_Strike(Monk monk)
+        public Special Unarmed_Strike(Monk monk)
         {
             Name = "Unarmed Strike";
             Description = "At 1st level, a monk gains Improved Unarmed Strike as a bonus feat. A monk’s attacks may be with fist, elbows, knees, and feet. This means that a monk may make unarmed strikes with his hands full. There is no such thing as an off-hand attack for a monk striking unarmed. A monk may thus apply his full Strength bonus on damage rolls for all his unarmed strikes."
@@ -48,7 +48,7 @@ namespace Backend.Classes.Core.Class_Features
             return this;
         }
 
-        public Class_Feature Bonus_Feat(Monk monk)
+        public Special Bonus_Feat(Monk monk)
         {
             Name = "Bonus Feat";
             Description = "At 1st level, 2nd level, and every 4 levels thereafter, a monk may select a bonus feat. A monk need not have any of the prerequisites normally required for these feats to select them.";
@@ -62,7 +62,7 @@ namespace Backend.Classes.Core.Class_Features
             return this;
         }
 
-        public Class_Feature Stunning_Fist(Monk monk)
+        public Special Stunning_Fist(Monk monk)
         {
             Name = "Stunning Fist (" + monk.Level + "/day)";
             Description = "At 1st level, the monk gains Stunning Fist as a bonus feat, even if he does not meet the prerequisites. The monk may attempt a stunning attack a number of times per day equal to his monk level, plus one more time per day for every four levels he has in classes other than monk."
@@ -83,14 +83,14 @@ namespace Backend.Classes.Core.Class_Features
             return this;
         }
 
-        public Class_Feature Evasion()
+        public Special Evasion()
         {
             Name = "Evasion";
             Description = "At 2nd level or higher, a monk can avoid damage from many area-effect attacks. If a monk makes a successful Reflex saving throw against an attack that normally deals half damage on a successful save, he instead takes no damage. Evasion can be used only if a monk is wearing light armor or no armor. A helpless monk does not gain the benefit of evasion.";
             return this;
         }
 
-        public Class_Feature Fast_Movement(Monk monk)
+        public Special Fast_Movement(Monk monk)
         {
             Name = "Fast Movement";
             Description = "At 3rd level, a monk gains an enhancement bonus to his land speed. A monk in armor or carrying a medium or heavy load loses this extra speed.";
@@ -98,7 +98,7 @@ namespace Backend.Classes.Core.Class_Features
             return this;
         }
 
-        public Class_Feature Maneuver_Training(Monk monk)
+        public Special Maneuver_Training(Monk monk)
         {
             Name = "Maneuver Training";
             Description = "At 3rd level, a monk uses his monk level in place of his base attack bonus when calculating his Combat Maneuver Bonus. Base attack bonuses granted from other classes are unaffected and are added normally.";
@@ -106,14 +106,14 @@ namespace Backend.Classes.Core.Class_Features
             return this;
         }
 
-        public Class_Feature Still_Mind()
+        public Special Still_Mind()
         {
             Name = "Still Mind";
             Description = "A monk of 3rd level or higher gains a +2 bonus on saving throws against enchantment spells and effects.";
             return this;
         }
 
-        public Class_Feature Ki_Pool(Monk monk)
+        public Special Ki_Pool(Monk monk)
         {
             string type = "magic";
             if(monk.Level >= 7) { type += ", cold iron, silver"; }
@@ -135,7 +135,7 @@ namespace Backend.Classes.Core.Class_Features
             return this;
         }
 
-        public Class_Feature Slow_Fall(Monk monk)
+        public Special Slow_Fall(Monk monk)
         {
             int distance = monk.Level / 2 * 10;
             Name = "Slow Fall " + distance + "ft";
@@ -143,49 +143,49 @@ namespace Backend.Classes.Core.Class_Features
             return this;
         }
 
-        public Class_Feature High_Jump()
+        public Special High_Jump()
         {
             Name = "High Jump";
             Description = "At 5th level, a monk adds his level to all Acrobatics checks made to jump, both for vertical jumps and horizontal jumps. In addition, he always counts as having a running start when making jump checks using Acrobatics. By spending 1 point from his ki pool as a swift action, a monk gains a +20 bonus on Acrobatics checks made to jump for 1 round.";
             return this;
         }
 
-        public Class_Feature Purity_of_Body()
+        public Special Purity_of_Body()
         {
             Name = "Purity of Body";
             Description = "At 5th level, a monk gains immunity to all diseases, including supernatural and magical diseases.";
             return this;
         }
 
-        public Class_Feature Wholeness_of_Body()
+        public Special Wholeness_of_Body()
         {
             Name = "Wholeness of Body";
             Description = "At 7th level or higher, a monk can heal his own wounds as a standard action. He can heal a number of hit points of damage equal to his monk level by using 2 points from his ki pool.";
             return this;
         }
 
-        public Class_Feature Improved_Evasion()
+        public Special Improved_Evasion()
         {
             Name = "Improved Evasion";
             Description = "At 9th level, a monk’s evasion ability improves. He still takes no damage on a successful Reflex saving throw against attacks, but henceforth he takes only half damage on a failed save. A helpless monk does not gain the benefit of improved evasion.";
             return this;
         }
 
-        public Class_Feature Diamond_Body()
+        public Special Diamond_Body()
         {
             Name = "Diamond Body";
             Description = "At 11th level, a monk gains immunity to poisons of all kinds.";
             return this;
         }
 
-        public Class_Feature Abundant_Step()
+        public Special Abundant_Step()
         {
             Name = "Abundant Step";
             Description = "At 12th level or higher, a monk can slip magically between spaces, as if using the spell dimension door. Using this ability is a move action that consumes 2 points from his ki pool. His caster level for this effect is equal to his monk level. He cannot take other creatures with him when he uses this ability.";
             return this;
         }
 
-        public Class_Feature Diamond_Soul(Monk monk)
+        public Special Diamond_Soul(Monk monk)
         {
             Name = "Diamond Soul";
             Description = "At 13th level, a monk gains spell resistance equal to his current monk level + 10. In order to affect the monk with a spell, a spellcaster must get a result on a caster level check (1d20 + caster level) that equals or exceeds the monk’s spell resistance.";
@@ -193,14 +193,14 @@ namespace Backend.Classes.Core.Class_Features
             return this;
         }
 
-        public Class_Feature Quivering_Palm()
+        public Special Quivering_Palm()
         {
             Name = "Quivering Palm";
             Description = "Starting at 15th level, a monk can set up vibrations within the body of another creature that can thereafter be fatal if the monk so desires. He can use this quivering palm attack once per day, and he must announce his intent before making his attack roll. Creatures immune to critical hits cannot be affected. Otherwise, if the monk strikes successfully and the target takes damage from the blow, the quivering palm attack succeeds. Thereafter, the monk can try to slay the victim at any later time, as long as the attempt is made within a number of days equal to his monk level. To make such an attempt, the monk merely wills the target to die (a free action), and unless the target makes a Fortitude saving throw (DC 10 + 1/2 the monk’s level + the monk’s Wis modifier), it dies. If the saving throw is successful, the target is no longer in danger from that particular quivering palm attack, but it may still be affected by another one at a later time. A monk can have no more than 1 quivering palm in effect at one time. If a monk uses quivering palm while another is still in effect, the previous effect is negated.";
             return this;
         }
 
-        public Class_Feature Timeless_Body()
+        public Special Timeless_Body()
         {
             Name = "Timeless Body";
             Description = "At 17th level, a monk no longer takes penalties to his ability scores for aging and cannot be magically aged. Any such penalties that he has already taken, however, remain in place. Age bonuses still accrue, and the monk still dies of old age when his time is up.";
@@ -208,21 +208,21 @@ namespace Backend.Classes.Core.Class_Features
             return this;
         }
 
-        public Class_Feature Tongue_of_the_Sun_and_Moon()
+        public Special Tongue_of_the_Sun_and_Moon()
         {
             Name = "Tongue of the Sun and Moon";
             Description = "A monk of 17th level or higher can speak with any living creature.";
             return this;
         }
 
-        public Class_Feature Empty_Body()
+        public Special Empty_Body()
         {
             Name = "Empty Body";
             Description = "At 19th level, a monk gains the ability to assume an ethereal state for 1 minute as though using the spell etherealness. Using this ability is a move action that consumes 3 points from his ki pool. This ability only affects the monk and cannot be used to make other creatures ethereal.";
             return this;
         }
 
-        public Class_Feature Perfect_Self()
+        public Special Perfect_Self()
         {
             Name = "Perfect Self";
             Description = "At 20th level, a monk becomes a magical creature. He is forevermore treated as an outsider rather than as a humanoid (or whatever the monk’s creature type was) for the purpose of spells and magical effects. Additionally, the monk gains damage reduction 10/chaotic, which allows him to ignore the first 10 points of damage from any attack made by a nonchaotic weapon or by any natural attack made by a creature that doesn’t have similar damage reduction. Unlike other outsiders, the monk can still be brought back from the dead as if he were a member of his previous creature type.";

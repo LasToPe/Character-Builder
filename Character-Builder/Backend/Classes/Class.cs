@@ -9,7 +9,7 @@ namespace Backend.Classes
         protected Character character;
         public int Level { get; set; }
         public int BAB { get; set; }
-        public List<Class_Feature> Class_Features { get; } = new List<Class_Feature>();
+        public List<Special> Class_Features { get; } = new List<Special>();
         protected static List<Action> levelList;
 
         public Class(Character character)

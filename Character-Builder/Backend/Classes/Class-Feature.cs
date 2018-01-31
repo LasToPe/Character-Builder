@@ -4,7 +4,7 @@ using System.Text;
 
 namespace Backend.Classes
 {
-    public class Class_Feature
+    public class Special
     {
         public string Name { get; set; }
         public string Description { get; set; }

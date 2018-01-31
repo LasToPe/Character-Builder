@@ -4,9 +4,9 @@ using System.Text;
 
 namespace Backend.Classes.Core.Class_Features
 {
-    class Fighter_Class_Features : Class_Feature
+    class Fighter_Specials : Special
     {
-        public Class_Feature Bonus_Feats(Fighter fighter)
+        public Special Bonus_Feats(Fighter fighter)
         {
             Name = "Bonus Feats"; //maybe remove (s)
             Description = "At 1st level, and at every even level thereafter, a fighter gains a bonus feat in addition to those gained from normal advancement (meaning that the fighter gains a feat at every level). These bonus feats must be selected from those listed as Combat Feats, sometimes also called 'fighter bonus feats.'"
@@ -16,7 +16,7 @@ namespace Backend.Classes.Core.Class_Features
             return this;
         }
 
-        public Class_Feature Bravery(Fighter fighter)
+        public Special Bravery(Fighter fighter)
         {
             int bonus = (fighter.Level - 2) / 4 + 1;
             Name = "Bravery +" + bonus;
@@ -24,7 +24,7 @@ namespace Backend.Classes.Core.Class_Features
             return this;
         }
 
-        public Class_Feature Armor_Training(Fighter fighter)
+        public Special Armor_Training(Fighter fighter)
         {
             int bonus;
             if (fighter.Level >= 15) { bonus = 4; }
@@ -38,7 +38,7 @@ namespace Backend.Classes.Core.Class_Features
             return this;
         }
 
-        public Class_Feature Weapon_Training(Fighter fighter) //+ choice
+        public Special Weapon_Training(Fighter fighter) //+ choice
         {
             Name = "Weapon Training";
             Description = "Starting at 5th level, a fighter can select one group of weapons, as noted below. Whenever he attacks with a weapon from this group, he gains a +1 bonus on attack and damage rolls."
@@ -50,7 +50,7 @@ namespace Backend.Classes.Core.Class_Features
             return this;
         }
 
-        public Class_Feature Armor_Mastery(Fighter fighter)
+        public Special Armor_Mastery(Fighter fighter)
         {
             Name = "Armor Mastery";
             Description = "At 19th level, a fighter gains Damage Reduction 5/— whenever he is wearing armor or using a shield.";
@@ -58,7 +58,7 @@ namespace Backend.Classes.Core.Class_Features
             return this;
         }
 
-        public Class_Feature Weapon_Mastery(Fighter fighter)
+        public Special Weapon_Mastery(Fighter fighter)
         {
             Name = "Weapon Mastery";
             Description = "At 20th level, a fighter chooses one weapon, such as the longsword, greataxe, or longbow. Any attacks made with that weapon automatically confirm all critical threats and have their damage multiplier increased by 1 (×2 becomes ×3, for example). In addition, he cannot be disarmed while wielding a weapon of this type.";

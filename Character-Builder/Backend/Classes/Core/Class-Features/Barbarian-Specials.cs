@@ -5,9 +5,9 @@ using System.Text;
 
 namespace Backend.Classes.Core.Class_Features
 {
-    public class Barbarian_Class_Features : Class_Feature
+    public class Barbarian_Specials : Special
     {
-        public Class_Feature Fast_Movement(Character character)
+        public Special Fast_Movement(Character character)
         {
             Name = "Fast Movement";
             Description = "A barbarian’s land speed is faster than the norm for her race by +10 feet. This benefit applies only when he is wearing no armor, light armor, or medium armor, and not carrying a heavy load. Apply this bonus before modifying the barbarian’s speed because of any load carried or armor worn. This bonus stacks with any other bonuses to the barbarian’s land speed.";
@@ -15,7 +15,7 @@ namespace Backend.Classes.Core.Class_Features
             return this;
         }
 
-        public Class_Feature Rage()
+        public Special Rage()
         {
             Name = "Rage";
             Description =
@@ -28,7 +28,7 @@ namespace Backend.Classes.Core.Class_Features
             return this;
         }
 
-        public Class_Feature Rage_Powers(Barbarian barbarian)
+        public Special Rage_Powers(Barbarian barbarian)
         {
             Name = "Rage Powers";
             Description =
@@ -39,7 +39,7 @@ namespace Backend.Classes.Core.Class_Features
             return this;
         }
 
-        public Class_Feature Uncanny_Dodge()
+        public Special Uncanny_Dodge()
         {
             Name = "Uncanny Dodge";
             Description =
@@ -49,7 +49,7 @@ namespace Backend.Classes.Core.Class_Features
             return this;
         }
 
-        public Class_Feature Trap_Sense(Barbarian barbarian)
+        public Special Trap_Sense(Barbarian barbarian)
         {
             int bonus = barbarian.Level / 3;
             Name = "Trap Sense +" + bonus;
@@ -57,7 +57,7 @@ namespace Backend.Classes.Core.Class_Features
             return this;
         }
 
-        public Class_Feature Improved_Uncanny_Dodge()
+        public Special Improved_Uncanny_Dodge()
         {
             Name = "Improved Uncanny Dodge";
             Description =
@@ -67,7 +67,7 @@ namespace Backend.Classes.Core.Class_Features
             return this;
         }
 
-        public Class_Feature Damage_Reduction(Character character, Barbarian barbarian)
+        public Special Damage_Reduction(Character character, Barbarian barbarian)
         {
             int bonus = (barbarian.Level - 7) / 3 + 1;
             Name = "Damage Reduction " + bonus + "/-";
@@ -76,28 +76,28 @@ namespace Backend.Classes.Core.Class_Features
             return this;
         }
 
-        public Class_Feature Greater_Rage()
+        public Special Greater_Rage()
         {
             Name = "Greater Rage";
             Description = "At 11th level, when a barbarian enters rage, the morale bonus to her Strength and Constitution increases to +6 and the morale bonus on her Will saves increases to +3.";
             return this;
         }
 
-        public Class_Feature Indomitable_Will()
+        public Special Indomitable_Will()
         {
             Name = "Indomitable Will";
             Description = "While in rage, a barbarian of 14th level or higher gains a +4 bonus on Will saves to resist enchantment spells. This bonus stacks with all other modifiers, including the morale bonus on Will saves she also receives during her rage.";
             return this;
         }
 
-        public Class_Feature Tireless_Rage()
+        public Special Tireless_Rage()
         {
             Name = "Tireless Rage";
             Description = "Starting at 17th level, a barbarian no longer becomes fatigued at the end of her rage.";
             return this;
         }
 
-        public Class_Feature Mighty_Rage()
+        public Special Mighty_Rage()
         {
             Name = "Mighty Rage";
             Description = "At 20th level, when a barbarian enters rage, the morale bonus to her Strength and Constitution increases to +8 and the morale bonus on her Will saves increases to +4.";

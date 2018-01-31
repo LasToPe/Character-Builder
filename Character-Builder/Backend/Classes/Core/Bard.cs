@@ -16,15 +16,15 @@ namespace Backend.Classes.Core
         public override void Level_01()
         {
             BAB = Level * 3 / 4;
-            Class_Features.Add(new Bard_Class_Features().Bardic_Knowledge(this));
-            Class_Features.Add(new Bard_Class_Features().Bardic_Performance(this));
+            Class_Features.Add(new Bard_Specials().Bardic_Knowledge(this));
+            Class_Features.Add(new Bard_Specials().Bardic_Performance(this));
         }
 
         public override void Level_02()
         {
             BAB = Level * 3 / 4;
-            Class_Features.Add(new Bard_Class_Features().Versatile_Performance());
-            Class_Features.Add(new Bard_Class_Features().Well_Versed());
+            Class_Features.Add(new Bard_Specials().Versatile_Performance());
+            Class_Features.Add(new Bard_Specials().Well_Versed());
         }
 
         public override void Level_03()
@@ -35,13 +35,13 @@ namespace Backend.Classes.Core
         public override void Level_04()
         {
             BAB = Level * 3 / 4;
-            Class_Features.Add(new Bard_Class_Features().Lore_Master(this));
+            Class_Features.Add(new Bard_Specials().Lore_Master(this));
         }
 
         public override void Level_05()
         {
             BAB = Level * 3 / 4;
-            Class_Features.Add(new Bard_Class_Features().Versatile_Performance());
+            Class_Features.Add(new Bard_Specials().Versatile_Performance());
         }
 
         public override void Level_06()
@@ -67,8 +67,8 @@ namespace Backend.Classes.Core
         public override void Level_10()
         {
             BAB = Level * 3 / 4;
-            Class_Features.Add(new Bard_Class_Features().Jack_of_All_Trades());
-            Class_Features.Add(new Bard_Class_Features().Versatile_Performance());
+            Class_Features.Add(new Bard_Specials().Jack_of_All_Trades());
+            Class_Features.Add(new Bard_Specials().Versatile_Performance());
         }
 
         public override void Level_11()
@@ -89,7 +89,7 @@ namespace Backend.Classes.Core
         public override void Level_14()
         {
             BAB = Level * 3 / 4;
-            Class_Features.Add(new Bard_Class_Features().Versatile_Performance());
+            Class_Features.Add(new Bard_Specials().Versatile_Performance());
         }
 
         public override void Level_15()
@@ -110,7 +110,7 @@ namespace Backend.Classes.Core
         public override void Level_18()
         {
             BAB = Level * 3 / 4;
-            Class_Features.Add(new Bard_Class_Features().Versatile_Performance());
+            Class_Features.Add(new Bard_Specials().Versatile_Performance());
         }
 
         public override void Level_19()
