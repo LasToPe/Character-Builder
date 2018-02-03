@@ -6,7 +6,7 @@ namespace Backend.Classes
 {
     public abstract class Class
     {
-        protected Character character;
+        public Character character { get; set; }
         public int Level { get; set; }
         public int BAB { get; set; }
         public List<Special> Specials { get; } = new List<Special>();

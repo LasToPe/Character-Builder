@@ -4,8 +4,24 @@ using System.Text;
 
 namespace Backend.Classes.Core.Specials
 {
-    class Wizard_Specials : Special
+    public class Wizard_Specials : Special
     {
+        public List<object> Special_List()
+        {
+            List<object> list = new List<object>();
+            Type type = typeof(Wizard_Specials);
+
+            foreach (var method in type.GetMethods())
+            {
+                if (method.ReturnType.Equals(typeof(Special)))
+                {
+                    list.Add(method.Invoke(new Wizard_Specials(), new object[]{ }));
+                }
+            }
+
+            return list;
+        }
+
         public Special Arcane_Bond()
         {
             Name = "Arcane Bond";

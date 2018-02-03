@@ -23,7 +23,7 @@ namespace Backend.Classes.Core
         public override void Level_02()
         {
             Specials.Add(new Monk_Specials().Bonus_Feat(this));
-            Specials.Add(new Monk_Specials().Evasion();
+            Specials.Add(new Monk_Specials().Evasion());
         }
 
         public override void Level_03()

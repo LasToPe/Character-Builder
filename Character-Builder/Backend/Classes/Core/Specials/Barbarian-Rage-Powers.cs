@@ -7,7 +7,7 @@ namespace Backend.Classes.Core.Specials
     public class Rage_Power
     {
         public string Name { get; set; }
-        public List<bool> Prerequisites { get; }
+        public List<bool> Prerequisites { get; } = new List<bool>();
         public string Benefit { get; set; }
 
         public Rage_Power()
@@ -17,7 +17,23 @@ namespace Backend.Classes.Core.Specials
 
     public class Barbarian_Rage_Powers : Rage_Power
     {
-        public Rage_Power Animal_Fury()
+        public List<object> Power_List(Barbarian barbarian)
+        {
+            List<object> list = new List<object>();
+            Type type = typeof(Barbarian_Rage_Powers);
+
+            foreach (var method in type.GetMethods())
+            {
+                if (method.ReturnType.Equals(typeof(Rage_Power)))
+                {
+                    list.Add(method);
+                }
+            }
+
+            return list;
+        }
+
+        public Rage_Power Animal_Fury(Barbarian barbarian)
         {
             Name = "Animal Fury";
             Benefit = "Gain a bite attack";
@@ -33,7 +49,7 @@ namespace Backend.Classes.Core.Specials
             return this;
         }
 
-        public Rage_Power Armor_Ripper()
+        public Rage_Power Armor_Ripper(Barbarian barbarian)
         {
             Name = "Armor Ripper";
             Benefit = "Gain a bonus to Sunder checks with your natural attacks while raging";
@@ -67,7 +83,7 @@ namespace Backend.Classes.Core.Specials
             return this;
         }
 
-        public Rage_Power Auspicious_Mark()
+        public Rage_Power Auspicious_Mark(Barbarian barbarian)
         {
             Name = "Auspicious Mark";
             Benefit = "Gain a bonus on a roll once per rage";
@@ -146,10 +162,10 @@ namespace Backend.Classes.Core.Specials
             return this;
         }
 
-        public Rage_Power Bloody_Bite(Barbarian barbarian, Character character) //working??
+        public Rage_Power Bloody_Bite(Barbarian barbarian) //working??
         {
             Name = "Bloody Bite";
-            Prerequisites.Add(character.Race is Races.Core.Half_orc);
+            Prerequisites.Add(barbarian.character.Race is Races.Core.Half_orc);
             Prerequisites.Add(barbarian.Rage_Powers.Exists(x => x.Name == "Animal Fury")); // or other natural bite
             Benefit = "Your bite attack deals 1d6 points of bleed damage in addition to its other effects.";
             return this;
@@ -187,7 +203,7 @@ namespace Backend.Classes.Core.Specials
             return this;
         }
 
-        public Rage_Power Brawler()
+        public Rage_Power Brawler(Barbarian barbarian)
         {
             Name = "Brawler";
             Benefit = "Gain Improved Unarmed Strike while raging"; //if IUS 1d6
@@ -202,7 +218,7 @@ namespace Backend.Classes.Core.Specials
             return this;
         }
 
-        public Rage_Power Breathtaker()
+        public Rage_Power Breathtaker(Barbarian barbarian)
         {
             Name = "Breathtaker";
             Benefit = "While raging, whenever you make a successful melee attack against an opponent that is holding its breath, in addition to any other effects caused by that attack, the opponent loses a number of rounds of breath equal to your Strength modifier.";
@@ -454,9 +470,9 @@ namespace Backend.Classes.Core.Specials
             return this;
         }
 
-        public Rage_Power Energy_Resistance(Barbarian barbarian, string type)
+        public Rage_Power Energy_Resistance(Barbarian barbarian/*, string type*/)
         {
-            Name = "Energy Resistance " + type; //acid, cold, electricity, fire, or sonic
+            Name = "Energy Resistance "; //+ type; //acid, cold, electricity, fire, or sonic
             Prerequisites.Add(!barbarian.Rage_Powers.Exists(x => x.Name == Name));
             Benefit = "Gain resistance to one type of elemental damage";
             return this;
@@ -582,7 +598,7 @@ namespace Backend.Classes.Core.Specials
             return this;
         }
 
-        public Rage_Power Fight_Response()
+        public Rage_Power Fight_Response(Barbarian barbarian)
         {
             Name = "Fight Response";
             Benefit = "When a barbarian with this rage power attempts a saving throw against a fear effect, she can enter a rage as an immediate action (as long as she would normally be able to enter rage). This consumes 3 rounds of the barbarian’s daily allotment of rage rounds, but the barbarian can maintain the rage each round on her turn normally. Any benefits from the barbarian’s rage apply immediately, so she gains her bonus on Will saves against the effect that required the initial saving throw. Unlike most rage powers, this rage power’s effects are useful only when the barbarian is not raging, so a skald can’t grant this rage power to allies with raging song.";
@@ -622,7 +638,7 @@ namespace Backend.Classes.Core.Specials
             return this;
         }
 
-        public Rage_Power Good_for_What_Ails_You()
+        public Rage_Power Good_for_What_Ails_You(Barbarian barbarian)
         {
             Name = "Good for What Ails You";
             Benefit = "Drink alcohol to gain a new save against conditions";
@@ -646,7 +662,7 @@ namespace Backend.Classes.Core.Specials
             return this;
         }
 
-        public Rage_Power Guarded_Life()
+        public Rage_Power Guarded_Life(Barbarian barbarian)
         {
             Name = "Guarded Life";
             Benefit = "Stabilize when at negative hit points";
@@ -662,7 +678,7 @@ namespace Backend.Classes.Core.Specials
             return this;
         }
 
-        public Rage_Power Guarded_Stance()
+        public Rage_Power Guarded_Stance(Barbarian barbarian)
         {
             Name = "Guarded Stance";
             Benefit = "Gain a dodge bonus to AC";
@@ -697,7 +713,7 @@ namespace Backend.Classes.Core.Specials
             return this;
         }
 
-        public Rage_Power Lesser_Hurling()
+        public Rage_Power Lesser_Hurling(Barbarian barbarian)
         {
             Name = "Hurling, Lesser";
             Benefit = "You can lift and throw large objects to do damage";
@@ -763,21 +779,21 @@ namespace Backend.Classes.Core.Specials
             return this;
         }
 
-        public Rage_Power Intimidating_Glare()
+        public Rage_Power Intimidating_Glare(Barbarian barbarian)
         {
             Name = "Intimidating Glare";
             Benefit = "Intimidate an opponent as a move action";
             return this;
         }
 
-        public Rage_Power Knockback()
+        public Rage_Power Knockback(Barbarian barbarian)
         {
             Name = "Knockback";
             Benefit = "Make a bull rush in place of a melee attack";
             return this;
         }
 
-        public Rage_Power Knockdown()
+        public Rage_Power Knockdown(Barbarian barbarian)
         {
             Name = "Knockdown";
             Benefit = "Make a trip attack in place of a melee attack";
@@ -849,14 +865,14 @@ namespace Backend.Classes.Core.Specials
             return this;
         }
 
-        public Rage_Power Liquid_Courage()
+        public Rage_Power Liquid_Courage(Barbarian barbarian)
         {
             Name = "Liquid Courage";
             Benefit = "Alcoholic beverages give you a morale bonus while raging";
             return this;
         }
 
-        public Rage_Power Low_Light_Vision()
+        public Rage_Power Low_Light_Vision(Barbarian barbarian)
         {
             Name = "Low-Light Vision";
             Benefit = "Gain low-light vision while raging";
@@ -871,7 +887,7 @@ namespace Backend.Classes.Core.Specials
             return this;
         }
 
-        public Rage_Power Moment_of_Clarity()
+        public Rage_Power Moment_of_Clarity(Barbarian barbarian)
         {
             Name = "Moment of Clarity";
             Benefit = "Remove benefits and penalties of raging for 1 round";
@@ -886,14 +902,14 @@ namespace Backend.Classes.Core.Specials
             return this;
         }
 
-        public Rage_Power No_Escape()
+        public Rage_Power No_Escape(Barbarian barbarian)
         {
             Name = "No Escape";
             Benefit = "Double move as an immediate action when an opponent withdraws";
             return this;
         }
 
-        public Rage_Power Overbearing_Advance()
+        public Rage_Power Overbearing_Advance(Barbarian barbarian)
         {
             Name = "Overbearing Advance";
             Benefit = "Deal extra damage when using the overrun maneuver";
@@ -926,7 +942,7 @@ namespace Backend.Classes.Core.Specials
             return this;
         }
 
-        public Rage_Power Powerful_Blow()
+        public Rage_Power Powerful_Blow(Barbarian barbarian)
         {
             Name = "Powerful Blow";
             Benefit = "Deal extra damage with a single blow";
@@ -942,14 +958,14 @@ namespace Backend.Classes.Core.Specials
             return this;
         }
 
-        public Rage_Power Quick_Reflexes()
+        public Rage_Power Quick_Reflexes(Barbarian barbarian)
         {
             Name = "Quick Reflexes";
             Benefit = "Make additional attacks of opportunity while raging";
             return this;
         }
 
-        public Rage_Power Raging_Climber()
+        public Rage_Power Raging_Climber(Barbarian barbarian)
         {
             Name = "Raging Climber";
             Benefit = "Gain a bonus on Climb checks while raging";
@@ -965,28 +981,28 @@ namespace Backend.Classes.Core.Specials
             return this;
         }
 
-        public Rage_Power Raging_Grappler()
+        public Rage_Power Raging_Grappler(Barbarian barbarian)
         {
             Name = "Raging Grappler";
             Benefit = "While raging, whenever you succeed at a check to start a grapple, you can choose to deal damage as if you had also succeeded at a check to maintain the grapple. In addition, while raging, whenever you succeed at a combat maneuver check to maintain a grapple, you can choose to give yourself, the target of your grapple, or both the prone condition as a free action while continuing to maintain the grapple.";
             return this;
         }
 
-        public Rage_Power Raging_Leaper()
+        public Rage_Power Raging_Leaper(Barbarian barbarian)
         {
             Name = "Raging Leaper";
             Benefit = "Gain a bonus on Acrobatics checks to jump while raging";
             return this;
         }
 
-        public Rage_Power Raging_Swimmer()
+        public Rage_Power Raging_Swimmer(Barbarian barbarian)
         {
             Name = "Raging Swimmer";
             Benefit = "Gain a bonus on Swim checks while raging";
             return this;
         }
 
-        public Rage_Power Reckless_Abandon()
+        public Rage_Power Reckless_Abandon(Barbarian barbarian)
         {
             Name = "Reckless Abandon";
             Benefit = "Take a penalty to AC for extra accuracy while raging";
@@ -1037,21 +1053,21 @@ namespace Backend.Classes.Core.Specials
             return this;
         }
 
-        public Rage_Power Roaring_Drunk()
+        public Rage_Power Roaring_Drunk(Barbarian barbarian)
         {
             Name = "Roaring Drunk";
             Benefit = "Gain a bonus on Intimidate checks and fear effect DC";
             return this;
         }
 
-        public Rage_Power Rolling_Dodge()
+        public Rage_Power Rolling_Dodge(Barbarian barbarian)
         {
             Name = "Rolling Dodge";
             Benefit = "Gain a dodge bonus to AC against ranged attacks while raging";
             return this;
         }
 
-        public Rage_Power Roused_Anger()
+        public Rage_Power Roused_Anger(Barbarian barbarian)
         {
             Name = "Roused Anger";
             Benefit = "Enter a rage even when fatigued";
@@ -1066,7 +1082,7 @@ namespace Backend.Classes.Core.Specials
             return this;
         }
 
-        public Rage_Power Savage_Intuition()
+        public Rage_Power Savage_Intuition(Barbarian barbarian)
         {
             Name = "Savage Intuition";
             Benefit = "You may enter a rage even if you aren’t aware that combat has begun";
@@ -1081,7 +1097,7 @@ namespace Backend.Classes.Core.Specials
             return this;
         }
 
-        public Rage_Power Scent()
+        public Rage_Power Scent(Barbarian barbarian)
         {
             Name = "Scent";
             Benefit = "Gain the scent ability when raging";
@@ -1097,7 +1113,7 @@ namespace Backend.Classes.Core.Specials
             return this;
         }
 
-        public Rage_Power Smasher()
+        public Rage_Power Smasher(Barbarian barbarian)
         {
             Name = "Smasher";
             Benefit = "When sundering an unattended object, ignore hardness";
@@ -1166,14 +1182,14 @@ namespace Backend.Classes.Core.Specials
             return this;
         }
 
-        public Rage_Power Staggering_Drunk()
+        public Rage_Power Staggering_Drunk(Barbarian barbarian)
         {
             Name = "Staggering Drunk";
             Benefit = "Gain dodge AC against attacks of opportunity if drinking";
             return this;
         }
 
-        public Rage_Power Strength_Surge()
+        public Rage_Power Strength_Surge(Barbarian barbarian)
         {
             Name = "Strength Surge";
             Benefit = "Gain a Strength bonus on Combat Maneuver Checks";
@@ -1189,21 +1205,21 @@ namespace Backend.Classes.Core.Specials
             return this;
         }
 
-        public Rage_Power Superstition()
+        public Rage_Power Superstition(Barbarian barbarian)
         {
             Name = "Superstition";
             Benefit = "Gain a bonus on saving throws";
             return this;
         }
 
-        public Rage_Power Surprise_Accuracy()
+        public Rage_Power Surprise_Accuracy(Barbarian barbarian)
         {
             Name = "Surprise Accuracy";
             Benefit = "Gain a morale bonus on one attack roll";
             return this;
         }
 
-        public Rage_Power Swift_Foot()
+        public Rage_Power Swift_Foot(Barbarian barbarian)
         {
             Name = "Swift Foot";
             Benefit = "Move faster when raging";
@@ -1236,7 +1252,7 @@ namespace Backend.Classes.Core.Specials
             return this;
         }
 
-        public Rage_Power Water_Sense()
+        public Rage_Power Water_Sense(Barbarian barbarian)
         {
             Name = "Water Sense";
             Benefit = "Your senses are no longer fooled by the rippling surface and confounding reflections seen in water that is being used as cover by your foes.";
