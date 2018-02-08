@@ -24,8 +24,8 @@
             <input type="button" value="STR" data-toggle="modal" data-target="#test-modal"/>
         </div>
         <div class="col-sm-9">
-            <input type="text" value="10" disabled />
-            <input type="text" disabled />
+            <input type="text" value="@ContentModel.character.Strength_Score" disabled />
+            <input type="text" value="@ContentModel.character.Strength_Modifier" disabled />
             <input type="text" disabled />
             <input type="text" disabled />
         </div>
@@ -36,8 +36,8 @@
             <input type="button" value="DEX" data-toggle="modal" data-target="#test-modal"/>
         </div>
         <div class="col-sm-9">
-            <input type="text" disabled />
-            <input type="text" disabled />
+            <input type="text" value="@ContentModel.character.Dexterity_Score" disabled />
+            <input type="text" value="@ContentModel.character.Dexterity_Modifier" disabled />
             <input type="text" disabled />
             <input type="text" disabled />
         </div>
@@ -48,8 +48,8 @@
             <input type="button" value="CON" data-toggle="modal" data-target="#test-modal"/>
         </div>
         <div class="col-sm-9">
-            <input type="text" disabled />
-            <input type="text" disabled />
+            <input type="text" value="@ContentModel.character.Constitution_Score" disabled />
+            <input type="text" value="@ContentModel.character.Constitution_Modifier" disabled />
             <input type="text" disabled />
             <input type="text" disabled />
         </div>
@@ -60,8 +60,8 @@
             <input type="button" value="INT" data-toggle="modal" data-target="#test-modal"/>
         </div>
         <div class="col-sm-9">
-            <input type="text" disabled />
-            <input type="text" disabled />
+            <input type="text" value="@ContentModel.character.Intelligence_Score" disabled />
+            <input type="text" value="@ContentModel.character.Intelligence_Modifier" disabled />
             <input type="text" disabled />
             <input type="text" disabled />
         </div>
@@ -72,8 +72,8 @@
             <input type="button" value="WIS" data-toggle="modal" data-target="#test-modal"/>
         </div>
         <div class="col-sm-9">
-            <input type="text" disabled />
-            <input type="text" disabled />
+            <input type="text" value="@ContentModel.character.Wisdom_Score" disabled />
+            <input type="text" value="@ContentModel.character.Wisdom_Modifier" disabled />
             <input type="text" disabled />
             <input type="text" disabled />
         </div>
@@ -84,8 +84,8 @@
             <input type="button" value="CHA" data-toggle="modal" data-target="#test-modal"/>
         </div>
         <div class="col-sm-9">
-            <input type="text" disabled />
-            <input type="text" disabled />
+            <input type="text" value="@ContentModel.character.Charisma_Score" disabled />
+            <input type="text" value="@ContentModel.character.Charisma_Modifier" disabled />
             <input type="text" disabled />
             <input type="text" disabled />
         </div>
@@ -105,6 +105,7 @@
                 <p>Some text in the modal.</p>
             </div>
             <div class="modal-footer">
+                <button type="button" class="btn btn-default" data-dismiss="modal" onclick="testFunction()">Test</button>
                 <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
             </div>
         </div>

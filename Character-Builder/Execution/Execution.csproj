@@ -6,7 +6,7 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\Backend\PF-Character.csproj" />
+    <ProjectReference Include="..\PF-Character\PF-Character.csproj" />
   </ItemGroup>
 
 </Project>

@@ -5,9 +5,9 @@ using PF_Character.Races.Core.Racial_Traits;
 
 namespace PF_Character.Races.Core
 {
-    class Gnome : Race
+    public class Gnome : Race
     {
-        public Gnome()
+        public Gnome(Character character) : base(character)
         {
             Strength_Bonus = -2;
             Constitution_Bonus = 2;

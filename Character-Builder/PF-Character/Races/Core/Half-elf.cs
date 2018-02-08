@@ -5,9 +5,9 @@ using PF_Character.Races.Core.Racial_Traits;
 
 namespace PF_Character.Races.Core
 {
-    class Half_elf : Race
+    public class Half_elf : Race
     {
-        public Half_elf(string bonus)
+        public Half_elf(string bonus, Character character) : base(character)
         {
             switch (bonus)
             {

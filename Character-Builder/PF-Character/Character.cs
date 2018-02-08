@@ -5,6 +5,7 @@ using PF_Character.Races.Core;
 using PF_Character.Classes;
 using PF_Character.Classes.Core;
 using PF_Character.Skills;
+using System.Reflection;
 
 namespace PF_Character
 {
@@ -18,7 +19,8 @@ namespace PF_Character
             Intelligence_Score = 10;
             Wisdom_Score = 10;
             Charisma_Score = 10;
-            Race = new Human("Strength");
+            Race = new Human("Strength", this);
+
             Character_Classes.Add(new Barbarian(this));
             Favored_Class = Character_Classes[0];
             Hit_Points = 0;
@@ -26,7 +28,13 @@ namespace PF_Character
             Armor_Class = 10;
             Touch_AC = 10;
             FlatFooted_AC = 10;
-            Skills_List = new Skill().SetUp(this);
+
+            //skill setup
+            foreach (var item in new Skill().Skill_List(this))
+            {
+                var temp = (MethodBase)item;
+                Skills_List.Add((Skill)temp.Invoke(new Skill(), new object[] { this }));
+            }
         }
 
         public string Name { get; set; }
@@ -97,7 +105,7 @@ namespace PF_Character
         public int CMD => 10 + BAB + Strength_Modifier + Dexterity_Modifier + Race.Size.CMD_Mod;
 
         //Skills
-        public List<Skill> Skills_List { get; set; } //Not ready yet
+        public List<Skill> Skills_List { get; set; } = new List<Skill>(); //Not ready yet
         public List<Skill> Class_Skills { get; set; } //Not ready yet / Needs change to loop that sets class skills
 
         //Feats

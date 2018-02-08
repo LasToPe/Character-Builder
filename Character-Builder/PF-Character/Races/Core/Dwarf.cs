@@ -5,9 +5,9 @@ using PF_Character.Races.Core.Racial_Traits;
 
 namespace PF_Character.Races.Core
 {
-    class Dwarf : Race
+    public class Dwarf : Race
     {
-        public Dwarf()
+        public Dwarf(Character character) : base(character)
         {
             Constitution_Bonus = 2;
             Wisdom_Bonus = 2;

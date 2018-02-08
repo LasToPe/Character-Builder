@@ -9,10 +9,10 @@ namespace Character_Builder.Controllers
 {
     public class SectionController : Controller
     {
-        public IActionResult TestAction()
+        public void TestAction()
         {
-            ContentModel.TestInt++;
-            return PartialView("Sections/Test");
+            ContentModel.character.Strength_Score += 2;
+            //return PartialView("Sections/Ability_Scores");
         }
     }
 }

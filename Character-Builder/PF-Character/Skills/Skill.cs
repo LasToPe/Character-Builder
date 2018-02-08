@@ -19,7 +19,7 @@ namespace PF_Character.Skills
             get
             {
                 int value = Key_Ability + Misc_Mod + Ranks;
-                if (Class_Skill && Ranks > 1)
+                if (Class_Skill && Ranks >= 1)
                 {
                     value += 3;
                 }
@@ -27,7 +27,23 @@ namespace PF_Character.Skills
             }
         }
 
-        public List<Skill> SetUp(Character character)
+        public List<object> Skill_List(Character character)
+        {
+            List<object> list = new List<object>();
+            Type type = typeof(Skill);
+
+            foreach (var method in type.GetMethods())
+            {
+                if (method.ReturnType.Equals(typeof(Skill)))
+                {
+                    list.Add(method);
+                }
+            }
+
+            return list;
+        }
+
+        /*public List<Skill> SetUp(Character character)
         {
             List<Skill> list = new List<Skill>
             {
@@ -69,7 +85,7 @@ namespace PF_Character.Skills
             };
 
             return list;
-        }
+        }*/
 
         public Skill Acrobatics(Character character)
         {

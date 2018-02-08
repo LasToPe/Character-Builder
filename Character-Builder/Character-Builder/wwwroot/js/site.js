@@ -3,5 +3,5 @@ function testFunction() {
     $.ajax({
         url: "/Section/TestAction"
     });
-    $("#testcontainer").load(location.href + " #testdiv");
+    $("#body-container").load(location.href + "#inner-body");
 }

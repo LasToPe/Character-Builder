@@ -5,9 +5,9 @@ using PF_Character.Races.Core.Racial_Traits;
 
 namespace PF_Character.Races.Core
 {
-    class Elf : Race
+    public class Elf : Race
     {
-        public Elf()
+        public Elf(Character character) : base(character)
         {
             Dexterity_Bonus = 2;
             Constitution_Bonus = -2;
@@ -23,7 +23,7 @@ namespace PF_Character.Races.Core
             Langauges.Add("Elven");
 
             Racial_Traits.Add(new Elf_Racial_Trait().Elven_Immunities());
-            Racial_Traits.Add(new Elf_Racial_Trait().Keen_Senses());
+            Racial_Traits.Add(new Elf_Racial_Trait().Keen_Senses(this));
             Racial_Traits.Add(new Elf_Racial_Trait().Elven_Magic());
             Racial_Traits.Add(new Elf_Racial_Trait().Weapon_Familiarity());
             Racial_Traits.Add(new Elf_Racial_Trait().Low_Light_Vision());

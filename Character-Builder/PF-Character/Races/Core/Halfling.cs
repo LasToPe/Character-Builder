@@ -5,9 +5,9 @@ using PF_Character.Races.Core.Racial_Traits;
 
 namespace PF_Character.Races.Core
 {
-    class Halfling : Race
+    public class Halfling : Race
     {
-        public Halfling()
+        public Halfling(Character character) : base(character)
         {
             Strength_Bonus = -2;
             Dexterity_Bonus = 2;

@@ -14,11 +14,12 @@ namespace PF_Character.Races.Core.Racial_Traits
             return this;
         }
 
-        public Racial_Trait Keen_Senses()
+        public Racial_Trait Keen_Senses(Elf elf)
         {
             Name = "Keen Senses";
             Description = "Elves receive a +2 racial bonus on Perception checks.";
-            //Set up functionality
+            //functionality
+            elf.Character.Skills_List.Find(x => x.Skill_Name == "Perception").Misc_Mod += 2;
             return this;
         }
 

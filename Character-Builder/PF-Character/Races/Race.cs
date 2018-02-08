@@ -13,6 +13,8 @@ namespace PF_Character.Races
         public int Wisdom_Bonus { get; set; }
         public int Charisma_Bonus { get; set; }
 
+        public Character Character { get; set; }
+
         public Size Size { get; set; }
 
         public string Type { get; set; }
@@ -22,5 +24,10 @@ namespace PF_Character.Races
         public List<string> Langauges { get; } = new List<string>();
 
         public List<Racial_Trait> Racial_Traits { get; } = new List<Racial_Trait>();
+
+        public Race(Character character)
+        {
+            Character = character;
+        }
     }
 }
