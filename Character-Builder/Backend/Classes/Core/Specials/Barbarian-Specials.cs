@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 
-namespace Backend.Classes.Core.Specials
+namespace PF_Character.Classes.Core.Specials
 {
     public class Barbarian_Specials : Special
     {

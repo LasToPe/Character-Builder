@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using System.Text;
 
-namespace Backend
+namespace PF_Character
 {
     class Character_Methods : Character
     {

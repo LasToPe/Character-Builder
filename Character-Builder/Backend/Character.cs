@@ -1,12 +1,12 @@
 ﻿using System;
 using System.Collections.Generic;
-using Backend.Races;
-using Backend.Races.Core;
-using Backend.Classes;
-using Backend.Classes.Core;
-using Backend.Skills;
+using PF_Character.Races;
+using PF_Character.Races.Core;
+using PF_Character.Classes;
+using PF_Character.Classes.Core;
+using PF_Character.Skills;
 
-namespace Backend
+namespace PF_Character
 {
     public class Character
     {

@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using System.Text;
 
-namespace Backend.Skills
+namespace PF_Character.Skills
 {
     public class Skill
     {

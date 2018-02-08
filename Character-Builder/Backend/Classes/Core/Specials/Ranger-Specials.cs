@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using System.Text;
 
-namespace Backend.Classes.Core.Specials
+namespace PF_Character.Classes.Core.Specials
 {
     class Ranger_Specials : Special
     {

@@ -1,9 +1,9 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Text;
-using Backend.Races.Core.Racial_Traits;
+using PF_Character.Races.Core.Racial_Traits;
 
-namespace Backend.Races.Core
+namespace PF_Character.Races.Core
 {
     class Dwarf : Race
     {

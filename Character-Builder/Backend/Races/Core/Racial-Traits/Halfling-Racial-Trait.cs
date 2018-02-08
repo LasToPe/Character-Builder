@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using System.Text;
 
-namespace Backend.Races.Core.Racial_Traits
+namespace PF_Character.Races.Core.Racial_Traits
 {
     class Halfling_Racial_Trait : Racial_Trait
     {

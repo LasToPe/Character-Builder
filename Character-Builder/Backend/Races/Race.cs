@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using System.Text;
 
-namespace Backend.Races
+namespace PF_Character.Races
 {
     public class Race
     {

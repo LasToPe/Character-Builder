@@ -1,9 +1,9 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Text;
-using Backend.Classes.Core.Specials;
+using PF_Character.Classes.Core.Specials;
 
-namespace Backend.Classes.Core
+namespace PF_Character.Classes.Core
 {
     class Monk : Class
     {

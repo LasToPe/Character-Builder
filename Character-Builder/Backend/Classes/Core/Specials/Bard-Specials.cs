@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using System.Text;
 
-namespace Backend.Classes.Core.Specials
+namespace PF_Character.Classes.Core.Specials
 {
     public class Bard_Specials : Special
     {

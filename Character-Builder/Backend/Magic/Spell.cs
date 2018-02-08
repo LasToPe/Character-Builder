@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using System.Text;
 
-namespace Backend.Magic
+namespace PF_Character.Magic
 {
     class Spell
     {

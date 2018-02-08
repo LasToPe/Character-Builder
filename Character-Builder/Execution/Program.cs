@@ -1,8 +1,8 @@
 ﻿using System;
-using Backend.Classes.Core.Specials;
-using Backend;
-using Backend.Classes;
-using Backend.Classes.Core;
+using PF_Character.Classes.Core.Specials;
+using PF_Character;
+using PF_Character.Classes;
+using PF_Character.Classes.Core;
 using System.Reflection;
 using System.Collections.Generic;
 
@@ -12,7 +12,7 @@ namespace Execution
     {
         static void Main(string[] args)
         {
-            Character character = new Character();
+            PF_Character.Character character = new PF_Character.Character();
             Barbarian barbarian = new Barbarian(character);
 
             /*character.Character_Classes.RemoveAt(0);

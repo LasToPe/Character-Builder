@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using System.Text;
 
-namespace Backend.Classes
+namespace PF_Character.Classes
 {
     public abstract class Class
     {
