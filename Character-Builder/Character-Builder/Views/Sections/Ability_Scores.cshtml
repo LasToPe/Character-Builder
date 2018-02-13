@@ -102,10 +102,41 @@
                 <h2 class="modal-title">Ability Scores</h2>
             </div>
             <div class="modal-body">
-                <p>Some text in the modal.</p>
+                <form action="@Url.Action("SetScores", "SectionController")" method="post">
+                    <label style="width: 150px">Strength</label>
+                    <input id="Strength" type="number" max="18" min="3" value="@ContentModel.character.Base_Strength_Score" />
+                    <label>+@ContentModel.character.Race.Strength_Bonus</label>
+                    <br />
+
+                    <label style="width: 150px">Dexterity</label>
+                    <input id="Dexterity" type="number" max="18" min="3" value="@ContentModel.character.Base_Dexterity_Score" />
+                    <label>+@ContentModel.character.Race.Dexterity_Bonus</label>
+                    <br />
+
+                    <label style="width: 150px">Constitution</label>
+                    <input id="Constitution" type="number" max="18" min="3" value="@ContentModel.character.Base_Constitution_Score" />
+                    <label>+@ContentModel.character.Race.Constitution_Bonus</label>
+                    <br />
+
+                    <label style="width: 150px">Intelligence</label>
+                    <input id="Intelligence" type="number" max="18" min="3" value="@ContentModel.character.Base_Intelligence_Score" />
+                    <label>+@ContentModel.character.Race.Intelligence_Bonus</label>
+                    <br />
+
+                    <label style="width: 150px">Wisdom</label>
+                    <input id="Wisdom" type="number" max="18" min="3" value="@ContentModel.character.Base_Wisdom_Score" />
+                    <label>+@ContentModel.character.Race.Wisdom_Bonus</label>
+                    <br />
+
+                    <label style="width: 150px">Charisma</label>
+                    <input id="Charisma" type="number" max="18" min="3" value="@ContentModel.character.Base_Charisma_Score" />
+                    <label>+@ContentModel.character.Race.Charisma_Bonus</label>
+                    <br />
+                </form>
+                <br />
             </div>
             <div class="modal-footer">
-                <button type="button" class="btn btn-default" data-dismiss="modal" onclick="testFunction()">Test</button>
+                <button type="button" class="btn btn-default" data-dismiss="modal" onclick="SetScores()">Submit</button>
                 <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
             </div>
         </div>

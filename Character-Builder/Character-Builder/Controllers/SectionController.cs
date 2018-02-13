@@ -9,10 +9,14 @@ namespace Character_Builder.Controllers
 {
     public class SectionController : Controller
     {
-        public void TestAction()
+        public void SetScores(int Strength, int Dexterity, int Constitution, int Intelligence, int Wisdom, int Charisma)
         {
-            ContentModel.character.Strength_Score += 2;
-            //return PartialView("Sections/Ability_Scores");
+            ContentModel.character.Base_Strength_Score = Strength;
+            ContentModel.character.Base_Dexterity_Score = Dexterity;
+            ContentModel.character.Base_Constitution_Score = Constitution;
+            ContentModel.character.Base_Intelligence_Score = Intelligence;
+            ContentModel.character.Base_Wisdom_Score = Wisdom;
+            ContentModel.character.Base_Charisma_Score = Charisma;
         }
     }
 }

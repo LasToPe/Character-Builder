@@ -13,12 +13,12 @@ namespace PF_Character
     {
         public Character()
         {
-            Strength_Score = 10;
-            Dexterity_Score = 10;
-            Constitution_Score = 10;
-            Intelligence_Score = 10;
-            Wisdom_Score = 10;
-            Charisma_Score = 10;
+            Base_Strength_Score = 10;
+            Base_Dexterity_Score = 10;
+            Base_Constitution_Score = 10;
+            Base_Intelligence_Score = 10;
+            Base_Wisdom_Score = 10;
+            Base_Charisma_Score = 10;
             Race = new Human("Strength", this);
 
             Character_Classes.Add(new Barbarian(this));
@@ -39,13 +39,21 @@ namespace PF_Character
 
         public string Name { get; set; }
 
+        //Base Scores
+        public int Base_Strength_Score { get; set; }
+        public int Base_Dexterity_Score { get; set; }
+        public int Base_Constitution_Score { get; set; }
+        public int Base_Intelligence_Score { get; set; }
+        public int Base_Wisdom_Score { get; set; }
+        public int Base_Charisma_Score { get; set; }
+
         //Ability Scores
-        public int Strength_Score { get; set; }
-        public int Dexterity_Score { get; set; }
-        public int Constitution_Score { get; set; }
-        public int Intelligence_Score { get; set; }
-        public int Wisdom_Score { get; set; }
-        public int Charisma_Score { get; set; }
+        public int Strength_Score { get => Base_Strength_Score + Race.Strength_Bonus; set => Strength_Score = value; }
+        public int Dexterity_Score { get => Base_Dexterity_Score + Race.Dexterity_Bonus; set => Dexterity_Score = value; }
+        public int Constitution_Score { get => Base_Constitution_Score + Race.Constitution_Bonus; set => Constitution_Score = value; }
+        public int Intelligence_Score { get => Base_Intelligence_Score + Race.Intelligence_Bonus; set => Intelligence_Score = value; }
+        public int Wisdom_Score { get => Base_Wisdom_Score + Race.Wisdom_Bonus; set => Wisdom_Score = value; }
+        public int Charisma_Score { get => Base_Charisma_Score + Race.Charisma_Bonus; set => Charisma_Score = value; }
 
         //Ability Modifiers
         public int Strength_Modifier => (Strength_Score - 10) / 2;
