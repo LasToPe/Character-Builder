@@ -43,6 +43,26 @@
     background-color: lightgray;
 }
 
+#race-list {
+    width: 33%;
+    height: 100%;
+    overflow: auto;
+}
+
+#race-list label {
+    background-color: lightgray;
+    cursor: pointer;
+    width: 90%;
+}
+
+#race-list input {
+    visibility: hidden;
+}
+
+#race-list input:checked + label {
+    background-color: #87dbff;
+}
+
 #ability-scores {
     text-align: center;
 }

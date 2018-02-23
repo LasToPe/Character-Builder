@@ -4,7 +4,7 @@ using System.Text;
 
 namespace PF_Character.Races
 {
-    public class Race
+    public abstract class Race
     {
         public int Strength_Bonus { get; set; }
         public int Dexterity_Bonus { get; set; }
@@ -12,6 +12,8 @@ namespace PF_Character.Races
         public int Intelligence_Bonus { get; set; }
         public int Wisdom_Bonus { get; set; }
         public int Charisma_Bonus { get; set; }
+
+        public string Race_Name { get; set; }
 
         public Character Character { get; set; }
 
@@ -29,5 +31,7 @@ namespace PF_Character.Races
         {
             Character = character;
         }
+
+        public abstract void SetBonus(string Bonus);
     }
 }

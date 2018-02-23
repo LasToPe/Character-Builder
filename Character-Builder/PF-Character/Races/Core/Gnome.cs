@@ -13,6 +13,8 @@ namespace PF_Character.Races.Core
             Constitution_Bonus = 2;
             Charisma_Bonus = 2;
 
+            Race_Name = "Gnome";
+
             Size = new Size().Small();
 
             Type = "Humanoid (gnome)";
@@ -31,6 +33,11 @@ namespace PF_Character.Races.Core
             Racial_Traits.Add(new Gnome_Racial_Trait().Hatred());
             Racial_Traits.Add(new Gnome_Racial_Trait().Weapon_Familiarity());
             Racial_Traits.Add(new Gnome_Racial_Trait().Low_Light_Vision());
+        }
+
+        public override void SetBonus(string Bonus)
+        {
+            //Do Nothing!
         }
     }
 }

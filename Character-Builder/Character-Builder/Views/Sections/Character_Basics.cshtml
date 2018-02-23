@@ -5,11 +5,11 @@
 
     <div class="row">
         <div class="col-sm-8">
-            <input type="text" placeholder="Character Name" style="width: 100%;" />
+            <input id="character-name" type="text" placeholder="Character Name" value="@ContentModel.character.Name" style="width: 100%;" />
             <label>Character Name</label>
         </div>
         <div class="col-sm-4">
-            <select style="width: 100%;">
+            <select id="alignment" style="width: 100%;">
                 <option value="Lawful Good">Lawful Good</option>
                 <option value="Neutral Good">Neutral Good</option>
                 <option value="Chaotic Good">Chaotic Good</option>
@@ -30,22 +30,28 @@
             <label>Character Level</label>
         </div>
         <div class="col-sm-4">
-            <input type="number" style="width: 100%;"/>
+            <input id="age" type="number" value="@ContentModel.character.Age" style="width: 100%;"/>
             <label>Age</label>
         </div>
         <div class="col-sm-4">
-            <input type="button" value="Category" style="width: 100%;"/>
+            <select style="width:100%;">
+                <option value="Young">Young</option>
+                <option value="Adult" selected>Adult</option>
+                <option value="Middle Aged">Middle Aged</option>
+                <option value="Old">Old</option>
+                <option value="Venerable">Venerable</option>
+            </select>
             <label>Age Category</label>
         </div>
     </div>
 
     <div class="row">
         <div class="col-sm-6">
-            <input type="button" value="Race" style="width:100%" data-toggle="modal" data-target="#race-modal"/>
+            <input id="race-button" type="button" value="@ContentModel.character.Race.Race_Name" style="width:100%" data-toggle="modal" data-target="#race-modal" onclick="ShowRacialBonusSelector()"/>
             <label>Race</label>
         </div>
         <div class="col-sm-6">
-            <input type="text" disabled style="width:100%" />
+            <input type="text" disabled style="width:100%" value="@ContentModel.character.Race.Size.Name" />
             <label>Size</label>
         </div>
     </div>
@@ -62,9 +68,35 @@
                 <h2 class="modal-title">Race</h2>
             </div>
             <div class="modal-body">
-                <p>Some text in the modal.</p>
+                <div id="race-list">
+                    <form id="race-selector">
+                        @foreach(var item in ContentModel.Core_Races)
+                        {
+                            @if(item.Race_Name.Equals(ContentModel.character.Race.Race_Name))
+                            {
+                                <input id="@item.Race_Name" type="radio" name="race" onchange="ShowRacialBonusSelector()" value="@item" checked /><label for="@item.Race_Name">@item.Race_Name</label>
+                            } else
+                            {
+                                <input id="@item.Race_Name" type="radio" name="race" onchange="ShowRacialBonusSelector()" value="@item" /><label for="@item.Race_Name">@item.Race_Name</label>
+                            }
+
+                        }
+                    </form>
+                    <div id="bonus-selector-container" style="display: none;">
+                        <h2>Select ability bonus</h2>
+                        <select id="bonus-selector">
+                            <option value="Strength" selected>Strength</option>
+                            <option value="Dexterity">Dexterity</option>
+                            <option value="Constitution">Constitution</option>
+                            <option value="Intelligence">Intelligence</option>
+                            <option value="Wisdom">Wisdom</option>
+                            <option value="Charisma">Charisma</option>
+                        </select>
+                    </div>
+                </div>
             </div>
             <div class="modal-footer">
+                <button type="button" class="btn btn-default" data-dismiss="modal" onclick="SetRace(), UpdateBasics()">Submit</button>
                 <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
             </div>
         </div>

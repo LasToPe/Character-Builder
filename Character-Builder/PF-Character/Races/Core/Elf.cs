@@ -13,6 +13,8 @@ namespace PF_Character.Races.Core
             Constitution_Bonus = -2;
             Intelligence_Bonus = 2;
 
+            Race_Name = "Elf";
+
             Size = new Size().Medium();
 
             Type = "Humanoid (elf)";
@@ -27,6 +29,11 @@ namespace PF_Character.Races.Core
             Racial_Traits.Add(new Elf_Racial_Trait().Elven_Magic());
             Racial_Traits.Add(new Elf_Racial_Trait().Weapon_Familiarity());
             Racial_Traits.Add(new Elf_Racial_Trait().Low_Light_Vision());
+        }
+
+        public override void SetBonus(string Bonus)
+        {
+            //Do Nothing
         }
     }
 }

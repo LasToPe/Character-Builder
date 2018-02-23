@@ -33,6 +33,8 @@ namespace PF_Character.Races.Core
                     break;
             }
 
+            Race_Name = "Human";
+
             Size = new Size().Medium();
 
             Type = "Humanoid (human)";
@@ -43,6 +45,63 @@ namespace PF_Character.Races.Core
 
             Racial_Traits.Add(new Human_Racial_Trait().Bonus_Feat());
             Racial_Traits.Add(new Human_Racial_Trait().Skilled());
+        }
+
+        public override void SetBonus(string bonus)
+        {
+            switch (bonus)
+            {
+                case "Strength":
+                    Strength_Bonus = 2;
+                    Dexterity_Bonus = 0;
+                    Constitution_Bonus = 0;
+                    Intelligence_Bonus = 0;
+                    Wisdom_Bonus = 0;
+                    Charisma_Bonus = 0;
+                    break;
+                case "Dexterity":
+                    Strength_Bonus = 0;
+                    Dexterity_Bonus = 2;
+                    Constitution_Bonus = 0;
+                    Intelligence_Bonus = 0;
+                    Wisdom_Bonus = 0;
+                    Charisma_Bonus = 0;
+                    break;
+                case "Constitution":
+                    Strength_Bonus = 0;
+                    Dexterity_Bonus = 0;
+                    Constitution_Bonus = 2;
+                    Intelligence_Bonus = 0;
+                    Wisdom_Bonus = 0;
+                    Charisma_Bonus = 0;
+                    break;
+                case "Intelligence":
+                    Strength_Bonus = 0;
+                    Dexterity_Bonus = 0;
+                    Constitution_Bonus = 0;
+                    Intelligence_Bonus = 2;
+                    Wisdom_Bonus = 0;
+                    Charisma_Bonus = 0;
+                    break;
+                case "Wisdom":
+                    Strength_Bonus = 0;
+                    Dexterity_Bonus = 0;
+                    Constitution_Bonus = 0;
+                    Intelligence_Bonus = 0;
+                    Wisdom_Bonus = 2;
+                    Charisma_Bonus = 0;
+                    break;
+                case "Charisma":
+                    Strength_Bonus = 0;
+                    Dexterity_Bonus = 0;
+                    Constitution_Bonus = 0;
+                    Intelligence_Bonus = 0;
+                    Wisdom_Bonus = 0;
+                    Charisma_Bonus = 2;
+                    break;
+                default:
+                    break;
+            }
         }
     }
 }

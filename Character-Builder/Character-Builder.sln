@@ -7,7 +7,7 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Character-Builder", "Charac
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Execution", "Execution\Execution.csproj", "{E9BCAC0D-CCA6-4198-A21A-85724717B6A1}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "PF-Character", "PF-Character\PF-Character.csproj", "{AF7AE975-F63F-4B4F-B99C-65FB7D29753F}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "PF_Character", "PF-Character\PF_Character.csproj", "{AF7AE975-F63F-4B4F-B99C-65FB7D29753F}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

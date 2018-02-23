@@ -13,6 +13,8 @@ namespace PF_Character.Races.Core
             Wisdom_Bonus = 2;
             Charisma_Bonus = -2;
 
+            Race_Name = "Dwarf";
+
             Size = new Size().Medium();
 
             Type = "Humanoid (dwarf)";
@@ -30,6 +32,11 @@ namespace PF_Character.Races.Core
             Racial_Traits.Add(new Dwarf_Racial_Trait().Darkvision());
             Racial_Traits.Add(new Dwarf_Racial_Trait().Hatred());
             Racial_Traits.Add(new Dwarf_Racial_Trait().Weapon_Familiarity());
+        }
+
+        public override void SetBonus(string Bonus)
+        {
+            //Do nothing
         }
     }
 }

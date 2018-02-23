@@ -5,6 +5,7 @@ using PF_Character.Races.Core;
 using PF_Character.Classes;
 using PF_Character.Classes.Core;
 using PF_Character.Skills;
+using PF_Character.Feats;
 using System.Reflection;
 
 namespace PF_Character
@@ -19,10 +20,10 @@ namespace PF_Character
             Base_Intelligence_Score = 10;
             Base_Wisdom_Score = 10;
             Base_Charisma_Score = 10;
-            Race = new Human("Strength", this);
 
-            Character_Classes.Add(new Barbarian(this));
-            Favored_Class = Character_Classes[0];
+            Alignment = "Neutral";
+
+            Race = new Human(null, this);
             Hit_Points = 0;
             Initiative = 0;
             Armor_Class = 10;
@@ -38,6 +39,9 @@ namespace PF_Character
         }
 
         public string Name { get; set; }
+        public int Age { get; set; }
+        public Age_category Age_Category { get; set; }
+        public string Alignment { get; set; }
 
         //Base Scores
         public int Base_Strength_Score { get; set; }
@@ -117,6 +121,6 @@ namespace PF_Character
         public List<Skill> Class_Skills { get; set; } //Not ready yet / Needs change to loop that sets class skills
 
         //Feats
-        //public Feats Feats { get; set; } //Not ready yet
+        public List<Feat> Feats { get; set; } = new List<Feat>(); //Not ready yet
     }
 }

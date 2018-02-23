@@ -6,6 +6,7 @@ namespace PF_Character.Races
 {
     public class Size
     {
+        public string Name { get; set; }
         public int AC_Mod { get; set; }
         public int Attack_Roll_Mod { get; set; }
         public int CMB_Mod { get; set; }
@@ -15,6 +16,7 @@ namespace PF_Character.Races
 
         public Size Medium()
         {
+            Name = "Medium";
             AC_Mod = 0;
             Attack_Roll_Mod = 0;
             CMB_Mod = 0;
@@ -27,6 +29,7 @@ namespace PF_Character.Races
 
         public Size Small()
         {
+            Name = "Small";
             AC_Mod = 1;
             Attack_Roll_Mod = 1;
             CMB_Mod = -1;
@@ -39,6 +42,7 @@ namespace PF_Character.Races
 
         public Size Large()
         {
+            Name = "Large";
             AC_Mod = -1;
             Attack_Roll_Mod = -1;
             CMB_Mod = 1;

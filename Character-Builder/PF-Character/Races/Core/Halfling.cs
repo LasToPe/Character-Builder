@@ -13,6 +13,8 @@ namespace PF_Character.Races.Core
             Dexterity_Bonus = 2;
             Charisma_Bonus = 2;
 
+            Race_Name = "Halfling";
+
             Size = new Size().Small();
 
             Type = "Humanoid (halfling)";
@@ -27,6 +29,11 @@ namespace PF_Character.Races.Core
             Racial_Traits.Add(new Halfling_Racial_Trait().Sure_Footed());
             Racial_Traits.Add(new Halfling_Racial_Trait().Weapon_Familiarity());
             Racial_Traits.Add(new Halfling_Racial_Trait().Keen_Senses());
+        }
+
+        public override void SetBonus(string Bonus)
+        {
+            //Do Nothing!
         }
     }
 }
